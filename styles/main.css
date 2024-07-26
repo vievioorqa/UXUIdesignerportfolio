@@ -1,0 +1,801 @@
+/* 
+  1 rem
+*/
+html {
+  font-size: 16px;
+}
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /*
+    2. Remove default margin
+  */
+  * {
+    margin: 0;
+  }
+  /*
+    improve text rendering
+  */
+  body {
+    -webkit-font-smoothing: antialiased;
+  }
+  /*
+    5. Improve media defaults
+  */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  /*
+    6. Remove built-in form typography styles
+  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /*
+    7. Avoid text overflows
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+
+:root {
+    --orange: #EE9105;
+    --yellow: #EEB905;
+    --yellow-light: #F5D977;
+    --blue-dark: #1E3B8A;
+    --blue-medium: #b1c4da;
+    --blue-light: #D7DEE5;
+    --rose-dark: #883130;
+    --rose-light: #E5C5C2;
+
+    --dark-text: #000000;
+    --medium-text: #575757;
+    --regular-text: #E7E1CF;
+    --light-text: #F5F5F5;
+
+    --background: #F0EFEE;
+    --dk-background: #DCDAD6;
+}
+
+/* headers */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Oranienbaum', serif;
+  font-weight: 400;
+  color: var(--dark-text);
+  line-height: 1.3;
+}
+h1, h2 {
+  line-height: 1.1;
+}
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2.25rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
+h4 {
+  font-size: 1.25rem;
+}
+h5 {
+  font-size: 1rem;
+}
+.sansserif-capslock {
+  font-family: 'Noto Sans Display', sans-serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+  letter-spacing: 5px;
+  line-height: 140%;
+  text-transform: uppercase;
+  font-variation-settings:
+    "wght" 400,
+    "wdth" 87.5;
+}
+.serif-capslock {
+  font-family: 'Oranienbaum', serif;
+  font-weight: 400;
+  font-size: 1.25rem;
+  letter-spacing: 5px;
+  line-height: 140%;
+  text-transform: uppercase;
+  /* font-variation-settings:
+    "wght" 400,
+    "wdth" 87.5; */
+}
+
+.noto-sans-display-body {
+  font-family: "Noto Sans Display", sans-serif;
+  line-height: 1.5;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings:
+    "wght" 300,
+    "wdth" 87.5;
+}
+
+.body-bold {
+  font-family: "Noto Sans Display", sans-serif;
+  line-height: 1.5;
+  /* line-height: 1.2; */
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings:
+    "wght" 600,
+    "wdth" 87.5;
+}
+
+.body-italic {
+  font-family: "Noto Sans Display", sans-serif;
+  line-height: 1.5;
+  /* line-height: 1.3; */
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: italic;
+  font-variation-settings:
+    "wght" 300,
+    "wdth" 100;
+}
+
+.body-small {
+  font-family: "Noto Sans Display", sans-serif;
+  line-height: 1.5;
+  font-size: 0.875rem;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings:
+    "wght" 300,
+    "wdth" 87.5;
+}
+
+/* body */
+body {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+
+  min-height: 100vh;
+  margin-left: 1.5rem;   /* mobile */
+  margin-right: 1.5rem;
+  margin-top: 1rem;
+  padding-top: 70px;
+
+  /* font-family: "Noto Sans Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  font-variation-settings: "wdth" 87.5; */
+
+  font-size: 1rem;
+  color: var(--dark-text);
+
+  background-color: var(--background);
+  /* margin-left: 4rem;
+  margin-right: 4rem;
+  margin-top: 2rem; */
+}
+
+@media (min-width: 780px) {
+  body {
+    /* display: grid; */
+    min-height: 100vh;
+    margin-left: 3rem;   /* mobile */
+    margin-right: 3rem;
+  }
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 3rem;
+  }
+  h3 {
+    font-size: 2.25rem;
+  }
+  h4 {
+    font-size: 1.5rem;
+  }
+  h5 {
+    font-size: 1.25rem;
+  }
+
+}
+
+
+
+/* flex */
+.flex {
+  display: flex;
+  gap: 1rem;
+  flex: 1;
+}
+
+.flex.wrap {
+  flex-wrap: wrap;
+}
+
+.flex.center {
+  align-items: center;
+}
+
+
+
+/* ---------------------------------------------- SPECIFIC SECTIONS ---------------------------------------------------- */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-top: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  background-color: var(--background); /* Adjust background color as needed */
+  z-index: 100; /* Adjust z-index to ensure it's above other content */
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  */
+}
+@media (min-width: 780px) {
+  .header {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+
+.logosmall-menu-settings_container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.5rem;
+  /* flex: 1; */
+  /* align-items: center; */
+  /* max-height: fit-content; */
+}
+  @media (min-width: 1150px) {
+    .logosmall-menu-settings_container {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+
+.logolarge_container {
+  display: flex;
+  /* flex: 1; */
+  /* justify-content: space-between; */
+  /* align-items: center; */
+  /*   
+  flex: 1;
+  max-height: fit-content; */
+}
+
+.logo {
+    height: 50px;
+    width: auto;
+    cursor: pointer;
+}
+  @media (min-width: 1150px) {
+    .logo {
+      padding-top: 14px;
+      height: 190px;
+      width: auto;
+    }
+  }
+
+.settings-menu_container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+
+/* ------------------------- sidebar -------------------------------- */
+
+#sidebar-active {
+  display: none;
+}
+
+.settings_container {
+  /* display: none; */
+  display: flex;
+  flex-direction: column;
+  position: fixed; /* the content is above everything else and will stay visible while scrolling */
+  top: 0;
+  right: -194px;
+  z-index: 1000; /*ensure the content is above everything else */
+  height: 100svh;
+  max-width: fit-content;
+  /* padding: 1rem; */
+  padding-top: 1.5rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  gap: 0.5rem;
+
+  background-color: var(--background);
+  transition: all 0.5s ease-in-out;
+}
+
+.settings {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  /* padding-top: 3rem; */
+  min-width: fit-content;
+}
+
+.settings_button {
+  display: flex;
+  max-width: fit-content;
+  align-items: center;
+  gap: 4px;
+  padding: 5px;
+  margin-top: 4px;
+  margin-bottom: 2px;
+  border: solid 2px var(--yellow);
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: context-menu;
+}
+.settings_button:hover {
+  background-color: var(--yellow);
+  transition: 0.2s;
+}
+
+.open-sidebar_button {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.close-sidebar_button {
+  display: flex;
+  align-self: flex-end;
+  align-items: center;
+  cursor: pointer;
+  /* display: none; */
+}
+
+#sidebar-active:checked ~ .settings_container {
+  display: flex;
+  right: 0;
+}
+
+#settings-overlay {
+  display: block; /* Keep the element in the flow */
+  height: 100svh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;  /* mniejszy niż w przypadku sidebaru */
+  visibility: hidden;
+  opacity: 0%;
+  transition: all 0.5s ease-in-out;
+}
+
+#sidebar-active:checked ~ #settings-overlay {
+  background-color: #000000;
+  /* transition: background-color 0.5s ease-in-out; */
+  opacity: 15%; /* 10% opacity when checked */
+  visibility: visible;
+}
+/* ---------- end sidebar ------------- */
+
+
+
+
+/* --------------- menu ------------------------------ */
+#menu-active {
+  display: none;
+}
+
+.menu_button {
+  background-color: var(--yellow);
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.menu_container {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  /* position: relative; */
+  position: sticky;
+  position: -webkit-sticky;
+  top: 1rem;
+  z-index: 1;
+  grid-column: 1;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  /* flex-direction: column; */
+  /* gap: 0.75rem; */
+  /* padding-top: 0.5rem; */
+}
+
+
+.open-menu_button, .close-menu_button {
+  display: none;
+}
+
+@media (max-width: 579px) {
+  .menu_container {
+      /* display: none; */
+      position: fixed; /* the content is above everything else and will stay visible while scrolling */
+      top: 0;
+      right: -202px;
+      z-index: 1000; /*ensure the content is above everything else */
+      height: 100%;
+      max-width: fit-content;
+      padding: 1.5rem;
+      gap: 0.5rem;
+      background-color: var(--background);
+      transition: 0.5s ease-out;
+  }
+
+  .menu {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      flex: none;
+      gap: 1.5rem;
+      padding-top: 3rem;
+  }
+
+  .open-menu_button {
+      display: block;
+      cursor: pointer;
+  }
+
+  .close-menu_button {
+      display: block;
+      align-self: flex-start;
+      cursor: pointer;
+  }
+
+  #menu-active:checked ~ .menu_container {
+      display: flex;
+      right: 0;
+  }
+    
+  #menu-overlay {
+      display: block; /* Keep the element in the flow */
+      height: 100svh;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999;
+      visibility: hidden;
+  }
+  
+  #menu-active:checked ~ #menu-overlay {
+      background-color: #000000;
+      transition: background-color 0.5s ease-in-out; /* Apply transition to opacity */
+      opacity: 15%; /* 10% opacity when checked */
+      visibility: visible;
+  }
+
+}
+/* --------------------- end menu ------------------- */
+
+
+
+
+
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* position: relative; */
+  
+  /* flex-direction: column; */
+  gap: 2rem;
+  flex: 1;
+  padding-top: 0.5rem;
+  /* border: 3px solid green; */
+  min-height: 70vh;
+  min-height: 70svh;
+}
+@media (min-width: 580px) {
+  .hero {
+    gap: 3rem;
+    /* padding-top: 1rem; */
+  }
+}
+@media (min-width: 808px) {
+  .hero {
+    display: grid;
+    grid-template-columns: 6fr 5fr;
+    gap: 4rem;
+    /* padding-top: 1rem; */
+  }
+}
+@media (min-width: 1149px) {
+  .hero {
+    padding-top: 0;
+  }
+}
+
+
+.hero__logo-namenav_container {
+  display: flex;
+  justify-content: flex-end;
+  /* position: relative; */
+  /* flex-direction: column; */
+}
+  @media (max-width: 808px) {
+    .hero__logo-namenav_container {
+      display: flex;
+      justify-content: center;
+      flex: 1;
+      width: 100%;
+      /* flex-direction: column; */
+    }
+  }
+
+
+.hero__logo-namenav {
+  display: flex;
+  justify-content: flex-end;
+  /* position: relative; */
+  /* flex-direction: column; */
+  /* flex-wrap: wrap; */
+  gap: 1rem;
+  flex: 1;
+  /* max-width: fit-content; */
+  /* border: 3px solid red; */
+  width: 100%;
+}
+@media (max-width: 808px) {
+  .hero__logo-namenav {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    flex: 1;
+    justify-content: center;
+    align-items: stretch;
+    gap: 1rem;
+    max-width: 100%;
+    /* max-width: fit-content; */
+    /* border: 3px solid red; */
+    width: 100%;
+  }
+}
+@media (min-width: 809px) and (max-width: 1149px) {
+  .hero__logo-namenav {
+    display: flex;
+    /* justify-content: flex-end; */
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    gap: 1rem;
+    flex: 1;
+    max-width: fit-content;
+    /* border: 3px solid red; */
+    width: 100%;
+  }
+}
+@media (max-width: 1149px) {
+  .hero__logo-namenav {
+    justify-content: flex-start;
+    gap: 0;
+  }
+}
+
+
+.hero__namenav {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  /* position: relative; */
+  /* border: solid 3px violet; */
+}
+  @media (max-width: 807px) {
+    .hero__namenav {
+      max-width: fit-content;
+      align-self: center;
+      /* border: solid 3px violet; */
+    }
+  }
+
+
+.name {
+  font-size: 3.875rem;
+  line-height: 1.1;
+}
+  @media (min-width: 580px) {
+    .name {
+      font-size: 6rem;
+      line-height: 1.1;
+    }
+  }
+
+
+nav {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+
+.traits {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.5rem;
+  /* flex: 1; */
+  /* max-width: fit-content; */
+  /* margin-left: 8px; */
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  /* border: solid 3px orange; */
+  max-width: fit-content;
+}
+@media (min-width: 444px) {
+  .traits {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    max-width: none;
+  }
+}
+
+
+/* --------------------------------------- MY WORK ---------------------------------------------- */
+
+.my-work_container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 4rem;
+}
+
+.my-work_arrows_elements {
+  position: relative;
+  overflow: hidden;
+  width: 90vw; /* Use vw for a scalable width */
+  padding: 1rem;
+  padding-left: 2rem;
+  user-select: none;
+}
+
+.my-work_elements {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  gap: 2rem;
+  /* overflow-x: hidden; */
+  transition: transform 0.5s ease;
+}
+
+.my-work_image_container {
+  flex: 0 0 auto;
+  width: calc(100% - 2rem); /* 2rem to account for the padding */
+  height: auto;
+  border-radius: 5px;
+  transition: width 0.5s;
+}
+
+
+@media (min-width: 579px) {
+  .my-work_image_container {
+    width: calc((100% / 2) - 2rem); /* Adjust for 2 images visible */
+  }
+}
+
+@media (min-width: 1050px) {
+  .my-work_image_container {
+    width: calc((100% / 3) - 2rem); /* Adjust for 3 images visible */
+  }
+}
+
+.my-work_image {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.my-work_image:hover{
+  transform: scale(1.07);
+}
+
+.arrow-left, .arrow-right {
+  position: absolute;
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Adjust for exact centering */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  cursor: pointer;
+  background-color: var(--yellow);
+  padding: 0.1rem;
+  border-radius: 50%;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+.arrow-left {
+  left: 0.5rem;
+}
+.arrow-right {
+  right: 0.5rem;
+}
+
+.arrow-left.inactive, .arrow-right.inactive {
+  opacity: 20%;
+}
+
+
+
+
+
+
+
+/* ---------------------------------------- OTHER STYLES ------------------------------------------------------------------*/
+ul {
+  /* list-style-type: none;
+  margin: 0;
+  padding-left: 0; */
+  padding-inline-start: 40px;
+}
+/*
+li {
+  word-wrap: normal;
+} */
+
+.no-bullets {
+  list-style-type: none;
+  padding-left: 0; 
+}
+
+.border-top {
+    border-top: solid 0.5px var(--medium-text);
+}
+
+/* for the carousel arrows */
+.hidden {
+  visibility: hidden;
+}
+
+
+.bold-link:hover {
+  text-decoration: underline;
+}
+
+
+.material-symbols-outlined {
+  font-size: 38px !important;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 100,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+.material-symbols-rounded {
+  font-size: 24px !important;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 100,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+
+
+
+
+

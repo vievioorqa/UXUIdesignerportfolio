@@ -1,0 +1,98 @@
+@import url('main.css');
+
+.boy-and-girl {
+    display: grid;
+    position: relative;
+    grid-template-areas: "stack";
+    /* height: 100%; */
+    max-height: fit-content;
+    overflow: visible;
+    padding-top: 0;
+    max-width: fit-content;
+    /* justify-content: flex-end; */
+    /* border: solid 3px blue; */
+}
+/* @media (min-width: 808px) and (max-width: 1248px){
+    .boy-and-girl {
+        display: grid;
+        grid-template-areas: "stack";
+        height: 100%;
+        overflow: hidden; 
+        padding-top: 80px;
+        border: solid 3px blue;
+    }
+} */
+/* @media (min-width: 1249px) {
+    .boy-and-girl {
+        display: grid;
+        grid-template-areas: "stack";
+        height: 100%;
+        overflow: hidden; 
+        padding-top: 0px;
+        border: solid 3px blue;
+    }
+} */
+
+
+.character {
+    /* position: absolute; */
+    grid-area: stack;
+    /* width: 100%;  */
+    max-height: 420px; 
+    width: auto;
+    z-index: 10;
+}
+
+.character-description {
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+    top: -90%;
+    left: -10%;
+    user-select: none;
+}
+
+.character-description-animation {
+    animation: character-desctiptionAppear 0.5s ease-out forwards;
+    animation-delay: 1.2s;
+    opacity: 0;
+}
+
+
+/* Apply the animations to respective characters */
+.character:nth-child(1) {
+    animation: moveDiagonallyBottomLeft 1s ease-out forwards;
+  }
+  
+.character:nth-child(2) {
+    animation: moveDiagonallyTopRight 1s ease-out forwards;
+  }
+
+  
+
+@keyframes moveDiagonallyBottomLeft {
+    0% {
+        transform: translate(-150vw, 150vh) rotate(-25deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
+@keyframes moveDiagonallyTopRight {
+    0% {
+        transform: translate(150vw, -150vh) rotate(25deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
+@keyframes character-desctiptionAppear {
+    0% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+    }
+}

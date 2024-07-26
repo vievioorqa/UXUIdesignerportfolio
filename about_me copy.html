@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/button.css">
+    <link rel="stylesheet" href="styles/about_me.css">
+    <link rel="stylesheet" href="styles/header-subpages.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <!-- body bold | body capslock | body italic | headers serif | headers capslock nonserif-->
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wdth,wght@87.5,700&family=Noto+Sans+Display&family=Noto+Sans+Display:ital,wght@1,300&family=Oranienbaum&family=Noto+Sans+Display:wght@600&display=swap" rel="stylesheet">
+        <!-- body -->
+        <!-- <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wdth,wght@87.5;100,100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> -->
+        <!-- icons -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>UX/UI designer portfolio</title>
+</head>
+
+<body class="noto-sans-display-body">
+
+    <header class="header-subpages">
+            <!-- navigation -->
+            <div class="navigation">
+                <!-- logo -->
+                <a href="index.html"><img src="images/logo.png" alt="logo" class="logo-small"></a>
+                <!-- menu -->
+                <input type="checkbox" id="menu-active">
+                <label id="menu-overlay" for="menu-active"></label>
+                <nav class="menu_container" aria-label='primary'>
+                    <div class="menu">
+                        <button><a type="button" class="button" href="my_work.html">my work</a></button>
+                        <button><a type="button" class="button" href="about_me.html">about me</a></button>
+                        <button><a type="button" class="button" href="contact.html">contact</a></button>
+                    </div>
+                    <label class="close-menu_button" for="menu-active">
+                        <i class="material-symbols-outlined">close</i>
+                    </label>
+                </nav>
+            </div>
+            <!-- settings button | menu button -->
+            <input type="checkbox" id="sidebar-active">
+            <div class="settings-menu_container">
+                <!-- settings button -->
+                <label for="sidebar-active" class="open-sidebar_button">
+                    <i class="material-symbols-outlined">discover_tune</i>
+                </label>
+                <!-- menu button -->
+                <label for="menu-active" class="open-menu_button">
+                    <i class="material-symbols-outlined menu_button">menu</i>
+                </label>
+            </div>
+            <!-- settings sidebar -->
+            <label id="settings-overlay" for="sidebar-active"></label>
+            <div class="settings_container">
+                <!-- close button -->
+                <label class="close-sidebar_button" for="sidebar-active">
+                    <i class="material-symbols-outlined">close</i>
+                </label>
+                <!-- language | dark mode -->
+                <div class="settings"> 
+                    <div class="button-settings">
+                        <i class="material-symbols-rounded">language</i>
+                        <p>pl</p>
+                    </div>
+                    <div class="button-settings">
+                        <i class="material-symbols-rounded">language</i>
+                        <p>eng</p>
+                    </div>
+                    <div class="button-settings">
+                        <i class="material-symbols-rounded">wb_sunny</i>
+                        <p>light mode</p>
+                    </div>
+                    <div class="button-settings">
+                        <i class="material-symbols-rounded">dark_mode</i>
+                        <p>dark mode</p>
+                    </div>
+                </div>
+            </div>
+    </header>
+
+    <main class="aboutme_container">
+        <h1>About me</h1>
+        <div class="photo-description_container">
+            <img class="my-photo" src="images/profilowe.jpg" alt="">
+            <div class="description_container">
+                <h2>Hi! I'm Patricia</h2>
+                <div class="description">
+                    <p>I'm known for being well organized and reliable. Being empathic, I create user-centered designs. Quick to learn and eager to grow, I'm always ready to tackle new challenges and innovate with fresh ideas.</p>
+                    <p>I am an aesthete and a perfectionist with a deep interest in art. My passion for beauty and attention to detail drive my appreciation and pursuit of artistic endeavors.</p>
+                </div>
+            </div>
+        </div>
+        <div class="cv_container">
+            <div class="cv-section_container">
+                <h3>Education</h3>
+                <div class="when-what_container">
+                    <div class="when-what">
+                        <p class="when">October 2021 -&nbsp;now</p>
+                        <div class="what">
+                            <p class="body-small">Jagiellonian University, Krakow, Poland</p>
+                            <h4>Electronic Information Processing</h4>
+                            <p class="body-small">candidate for bachelor's degree</p>
+                        </div>
+                    </div>
+                    <div class="when-what">
+                        <p class="when">May 2023</p>
+                        <div class="what">
+                            <p class="body-small">Jagiellonian University's academic society (Epicentrum)</p>
+                            <h4>UX/UI Design course</h4>
+                            <p class="body-small">lecturer: Elżbieta Krutysza</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="what-my-studies-gave-me_container">
+                    <h2 class="sansserif-capslock">what my studies gave me</h2>
+                    <div class="subheading-description">
+                        <h4>Design Skills</h4>
+                        <p>I possess strong design skills, including a thorough understanding of image construction principles such as composition, color, and harmony, and their impact on perception. I am proficient in typography, fundamentals of animation, and creating vector and 3D graphics. My expertise allows me to create cohesive and visually appealing designs.</p>
+                    </div>
+                    <div class="subheading-description">
+                        <h4>Language Savvy</h4>
+                        <p>My knowledge of linguistics, including morphology, pragmatics, semantics, and syntax, further enhances my mastery of UX writing. I have also taken courses in composition and rhetoric, which have strengthened my public speaking skills, allowing me to deliver engaging presentations and make complex concepts accessible and interesting to diverse audiences.</p>
+                    </div>
+                    <div class="subheading-description">
+                        <h4>Technical Basics</h4>
+                        <p>I have a solid understanding of informatics basics. Moreover, I’m familiar with CSS, HTML, PHP, Python and managing databases. These skills allow me to communicate with frontend and backend developers with ease. Bridging the gap between design and development, ensures smooth collaboration and efficient project execution.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cv-section_container">
+                <h3>Experience</h3>
+                <div class="when-what_container">
+                    <div class="when-what">
+                        <p class="when">September&nbsp;2023 -&nbsp;April&nbsp;2024</p>
+                        <div class="what">
+                            <p class="body-small">IT Academic Festival (SFI)</p>
+                            <h4>Graphics Team Leader</h4>
+                            <p class="body-small">volunteer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-description_container">
+                    <ul class="experience-description">
+                        <li>working in&nbsp;Large-scale Scrum</li>
+                            <ul>
+                                <li>7-person team</li>
+                                <li>conduction weekly meetings</li>
+                            </ul>
+                        <li>redesigning SFI websites</li>
+                            <ul>
+                                <li>ensuring visual consistency with the&nbsp;festival's graphic theme</li>
+                                <li>redesigning sfi.pl</li>
+                                <li>redesigning workshop.sfi.pl</li>
+                            </ul>
+                        <li>designing the&nbsp;SFI newsletter</li>
+                        <li>moderating the creation of signage for the congress center where the festival took place</li>
+                    </ul>
+                    <button class="check-out-the-projects body-small">
+                        <span class="button-text">CHECK OUT THE PROJECTS</span>
+                    </button>
+                </div>
+            </div>
+            <div class="cv-section_container">
+                <h3>Softwares</h3>
+                <ul class="softwares-languages">
+                    <li>Figma</li>
+                    <li>Affinity Designer</li>
+                    <li>Affinity Photo</li>
+                    <li>Blender</li>
+                </ul>                
+            </div>
+            <div class="cv-section_container">
+                <h3>Languages</h3>
+                <ul class="softwares-languages">
+                    <li>Polish (native)</li>
+                    <li>English (C1)</li>
+                    <li>German (C1)</li>
+                    <li>French (B1)</li>
+                </ul>                
+            </div>
+            <div class="cv-section_container">
+                <h3>How do I work</h3>
+                <div class="turn-ideas-into-prototypes">
+                    <p class="body-italic">By following the steps of Design Thinking...</p>
+                    <p class="body-italic">I turn ideas...</p>
+                    <div class="design-thinking-shapes">
+                        <!----------- before shapes -->
+                        <div class="shapes_container">
+                            <div id="trigger-point">Scroll to this point to trigger transition</div>
+                            <svg id="shape1" class="shape" width="533" height="243" viewBox="0 0 533 243" fill="none">
+                                <path d="M197.268 223.847C233.417 283.923 316.495 181.043 366.036 207.722C415.578 234.401 646.656 181.214 463.46 148.11C396.687 136.043 516.567 91.6244 439.804 75.7928C363.042 59.9613 359.775 47.355 314.861 35.628C269.947 23.901 227.482 43.837 211.422 25.0737C195.361 6.31044 114.728 -1.19827 67.9686 0.153657C27.4097 1.32631 121.594 59.082 87.0232 86.3474C59.312 108.203 -25.658 197.143 7.60468 223.847C40.8674 250.55 161.118 163.77 197.268 223.847Z" fill="#93B1D2"/>
+                                <text x="50%" y="50%" text-anchor="middle" dy=".3em">Shape 1</text>
+                            </svg>
+                            <svg id="shape2" class="shape" width="230" height="106" viewBox="0 0 230 106" fill="none">
+                                <path d="M131.172 46.5842C87.1896 65.3774 69.4823 43.4378 20.8968 57.6009C-27.6887 71.764 20.8968 112.037 41.6133 105.232C62.3298 98.4277 106.95 88.383 173.243 98.1036C239.535 107.824 237.623 40.7518 218.181 9.96977C198.74 -20.8123 175.155 27.7909 131.172 46.5842Z" fill="#EEB905"/>
+                            </svg>
+                            <svg id="shape3" class="shape" width="251" height="132" viewBox="0 0 251 132" fill="none">
+                                <path d="M88.4178 21.5636C130.683 37.375 177.021 30.9067 230.489 25.8758C283.957 20.8449 206.047 99.9019 191.534 89.8401C177.021 79.7783 160.981 79.0596 131.192 114.276C101.403 149.492 63.7208 117.869 71.3591 94.1523C78.9973 70.4352 24.7658 66.8417 5.6702 25.8758C-13.4254 -15.0901 46.1529 5.75223 88.4178 21.5636Z" fill="#EE9105" stroke="#EE9105" stroke-width="4"/>
+                            </svg>
+                            <svg id="shape4" class="shape" width="172" height="103" viewBox="0 0 172 103" fill="none">
+                                <path d="M64.6082 6.20122C91.1987 -11.3208 105.427 32.1924 121.463 23.4314C137.499 14.6705 162.865 22.2631 169.279 34.5286C175.694 46.794 136.916 52.0506 146.537 63.44C156.159 74.8293 169.863 56.1391 169.279 73.9532C168.696 91.7673 152.952 96.4398 125.836 86.8027C98.7211 77.1656 85.3092 78.0417 49.1553 96.4398C13.0015 114.838 -15.2802 72.201 14.4593 63.44C44.1987 54.6789 31.37 28.1038 64.6082 6.20122Z" stroke="#883130" stroke-width="4"/>
+                            </svg>
+                            <svg id="shape5" class="shape" width="243" height="122" viewBox="0 0 243 122" fill="none">
+                                <path d="M180.43 35.6802C144.786 7.15109 164.297 1.99994 83.2537 2C2.21091 2.00006 1.0103 56.1262 2.21094 82.4363C3.71173 115.324 41.6067 105.418 64.1186 91.9461C86.6304 78.474 113.645 77.2853 136.157 91.9461C158.669 106.607 164.672 138.702 218.7 105.418C272.729 72.1341 216.074 64.2093 180.43 35.6802Z" fill="#EEB905" stroke="#EEB905" stroke-width="4"/>
+                            </svg>
+                        </div>
+                        <p class="body-italic">into high-fidelity prototypes.</p>
+                        <!----------- after shapes  ---------------->
+                        <div class="new-shapes_container"> 
+                            <svg id="new-shape1" class="shape hidden" width="468" height="346" viewBox="0 0 468 346" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M468 346H1.8907e-05L3.22966e-05 147.531L-3.8147e-06 -0.000152588H265.058L377.804 -0.000104925L402.472 -1.28426e-05C412.691 6.22723e-05 423.457 0.000141401 468 4.53948e-05L468 135.517V244.603V346Z" fill="#93B1D2"/>
+                            </svg>
+                            <svg id="new-shape2" class="shape hidden" width="255" height="164" viewBox="0 0 255 164" fill="none">
+                                <path d="M106.613 37.5683C146.193 54.4625 164.359 7.60194 218.14 16.2103C271.921 24.8186 258.201 152.764 231.494 161.01C161.231 182.707 120.704 79.1984 60.4141 79.1984C-1.30472 79.1984 -9.41605 37.3661 8.07942 9.69439C25.5749 -17.9773 67.0331 20.674 106.613 37.5683Z" fill="#EEB905"/>
+                            </svg>
+                            <svg id="new-shape3" class="shape hidden" width="470" height="273" viewBox="0 0 470 273" fill="none">
+                                <path d="M340 81L340 271L468 271L468 2.00004L2 2.00003L2.00004 18.1539C2.00009 30.2012 2.00014 44.4299 2 81L340 81Z" fill="#EE9105" stroke="#EE9105" stroke-width="4"/>
+                            </svg>
+                            <svg id="new-shape4" class="shape hidden" width="224" height="181" viewBox="0 0 224 181" fill="none">
+                                <path d="M48.1876 5.62778C84.1192 -17.7832 82.4203 80.2203 104.09 68.5149C125.759 56.8095 199.085 20.4149 207.753 36.8026C216.42 53.1903 178.243 89.162 191.245 104.379C204.246 119.596 222.764 94.6246 221.976 118.426C221.188 142.227 199.912 148.47 163.272 135.594C126.631 122.718 114.41 150.358 65.5552 174.939C16.7007 199.521 -21.3071 104.945 18.8797 93.2398C59.0664 81.5343 3.27301 34.8915 48.1876 5.62778Z" stroke="#883130" stroke-width="4"/>
+                            </svg>
+                            <svg id="new-shape5" class="shape hidden" width="470" height="129" viewBox="0 0 470 129" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2.00001 126C50.6802 126 429.726 126.035 468 126.035V52H247V2L2.00002 2.00002L2.00001 126Z" fill="#EEB905" stroke="#EEB905" stroke-width="4"/>
+                            </svg>
+                        </div>
+                        <div class="bleb"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h2>Intrigued?</h2>
+            <p>
+                Chceck out
+                <a href="my_work.html">my projects</a>
+                or
+                <a href="contact.html">contact me</a>
+                straightaway.
+            </p>
+        </div>
+    </main>
+
+    <footer>
+        <p>© Patrycja Bobowska 2024, all rights reserved</p>
+    </footer>
+
+    <script src="styles/about_me.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+@import url(main.css);
+@import url(button.css);
+
+/* unchanged elements of the header, settings sidebar and menu sidebar are in main.css */
+
+.header-subpages {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.7rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    background-color: var(--background); /* Adjust background color as needed */
+    z-index: 100; /* Adjust z-index to ensure it's above other content */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+  @media (min-width: 780px) {
+    .header-subpages {
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+  }
+
+.logo-small {
+    height: 50px;
+    width: auto;
+    }
+
+/* overrides main.css .menu */
+.menu {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex: 1;
+}
+
+.menu_container {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+    /* align-self: flex-start; */
+    align-items: center;
+    /* position: relative; */
+    position: sticky;
+    position: -webkit-sticky;
+    top: 1rem;
+    z-index: 1;
+    grid-column: 1;
+  }
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+@media (max-width: 579px) {
+    .menu_container {
+        /* display: none; */
+        position: fixed; /* the content is above everything else and will stay visible while scrolling */
+        top: 0;
+        right: -202px;
+        z-index: 1000; /*ensure the content is above everything else */
+        height: 100%;
+        max-width: fit-content;
+        padding: 1.5rem;
+        gap: 0.5rem;
+        background-color: var(--background);
+        transition: 0.5s ease-out;
+    }
+  
+    .menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        flex: none;
+        gap: 1.5rem;
+        padding-top: 3rem;
+    }
+}

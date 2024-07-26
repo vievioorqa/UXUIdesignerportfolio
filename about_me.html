@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/button.css">
+    <link rel="stylesheet" href="styles/about_me.css">
+    <link rel="stylesheet" href="styles/header-subpages.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <!-- body bold | body capslock | body italic | headers serif | headers capslock nonserif-->
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wdth,wght@87.5,700&family=Noto+Sans+Display&family=Noto+Sans+Display:ital,wght@1,300&family=Oranienbaum&family=Noto+Sans+Display:wght@600&display=swap" rel="stylesheet">
+        <!-- body -->
+        <!-- <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wdth,wght@87.5;100,100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> -->
+        <!-- icons -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>UX/UI designer portfolio</title>
+</head>
+
+<body class="noto-sans-display-body">
+
+    <header class="header-subpages">
+            <!-- navigation -->
+            <div class="navigation">
+                <!-- logo -->
+                <a href="index.html"><img src="images/logo.png" alt="logo" class="logo-small"></a>
+                <!-- menu -->
+                <input type="checkbox" id="menu-active">
+                <label id="menu-overlay" for="menu-active"></label>
+                <nav class="menu_container" aria-label='primary'>
+                    <div class="menu">
+                        <button><a type="button" class="button" href="my_work.html">my work</a></button>
+                        <button><a type="button" class="button" href="about_me.html">about me</a></button>
+                        <button><a type="button" class="button" href="contact.html">contact</a></button>
+                    </div>
+                    <label class="close-menu_button" for="menu-active">
+                        <i class="material-symbols-outlined">close</i>
+                    </label>
+                </nav>
+            </div>
+            <!-- settings button | menu button -->
+            <input type="checkbox" id="sidebar-active">
+            <div class="settings-menu_container">
+                <!-- settings button -->
+                <label for="sidebar-active" class="open-sidebar_button">
+                    <i class="material-symbols-outlined">discover_tune</i>
+                </label>
+                <!-- menu button -->
+                <label for="menu-active" class="open-menu_button">
+                    <i class="material-symbols-outlined menu_button">menu</i>
+                </label>
+            </div>
+            <!-- settings sidebar -->
+            <label id="settings-overlay" for="sidebar-active"></label>
+            <div class="settings_container">
+                <!-- close button -->
+                <label class="close-sidebar_button" for="sidebar-active">
+                    <i class="material-symbols-outlined">close</i>
+                </label>
+                <!-- language | dark mode -->
+                <div class="settings"> 
+                    <div class="button-settings">
+                        <i class="material-symbols-rounded">language</i>
+                        <p>pl</p>
+                    </div>
+                    <div class="button-settings">
+                        <i class="material-symbols-rounded">language</i>
+                        <p>eng</p>
+                    </div>
+                    <div class="button-settings">
+                        <i class="material-symbols-rounded">wb_sunny</i>
+                        <p>light mode</p>
+                    </div>
+                    <div class="button-settings">
+                        <i class="material-symbols-rounded">dark_mode</i>
+                        <p>dark mode</p>
+                    </div>
+                </div>
+            </div>
+    </header>
+
+    <main class="aboutme_container">
+        <h1>About me</h1>
+        <div class="cv_container">
+            <div class="cv-section_container photo-description_container ">
+                <img class="my-photo" src="images/profilowe.jpg" alt="">
+                <div class="description_container">
+                    <h2>Hi! I'm Patricia</h2>
+                    <div class="description">
+                        <p>I'm known for being well organized and reliable. Being empathic, I create user-centered designs. Quick to learn and eager to grow, I'm always ready to tackle new challenges and innovate with fresh ideas.</p>
+                        <p>I am an aesthete and a perfectionist with a deep interest in art. My passion for beauty and attention to detail drive my appreciation and pursuit of artistic endeavors.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cv-section_container">
+                <h3>Education</h3>
+                <div class="when-what_container">
+                    <div class="when-what">
+                        <p class="when">October 2021 -&nbsp;now</p>
+                        <div class="what">
+                            <p class="body-small">Jagiellonian University, Krakow, Poland</p>
+                            <h4>Electronic Information Processing</h4>
+                            <p class="body-small">candidate for bachelor's degree</p>
+                        </div>
+                    </div>
+                    <div class="when-what">
+                        <p class="when">May 2023</p>
+                        <div class="what">
+                            <p class="body-small">Jagiellonian University's academic society (Epicentrum)</p>
+                            <h4>UX/UI Design course</h4>
+                            <p class="body-small">lecturer: Elżbieta Krutysza</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="what-my-studies-gave-me_container">
+                    <h2 class="sansserif-capslock">what my studies gave me</h2>
+                    <div class="subheading-description">
+                        <h4>Design Skills</h4>
+                        <p>I possess strong design skills, including a thorough understanding of image construction principles such as composition, color, and harmony, and their impact on perception. I am proficient in typography, fundamentals of animation, and creating vector and 3D graphics. My expertise allows me to create cohesive and visually appealing designs.</p>
+                    </div>
+                    <div class="subheading-description">
+                        <h4>Language Savvy</h4>
+                        <p>My knowledge of linguistics, including morphology, pragmatics, semantics, and syntax, further enhances my mastery of UX writing. I have also taken courses in composition and rhetoric, which have strengthened my public speaking skills, allowing me to deliver engaging presentations and make complex concepts accessible and interesting to diverse audiences.</p>
+                    </div>
+                    <div class="subheading-description">
+                        <h4>Technical Basics</h4>
+                        <p>I have a solid understanding of informatics basics. Moreover, I’m familiar with CSS, HTML, PHP, Python and managing databases. These skills allow me to communicate with frontend and backend developers with ease. Bridging the gap between design and development, ensures smooth collaboration and efficient project execution.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cv-section_container">
+                <h3>Experience</h3>
+                <div class="when-what_container">
+                    <div class="when-what">
+                        <p class="when">September&nbsp;2023 -&nbsp;April&nbsp;2024</p>
+                        <div class="what">
+                            <p class="body-small">IT Academic Festival (SFI)</p>
+                            <h4>Graphics Team Leader</h4>
+                            <p class="body-small">volunteer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-description_container">
+                    <ul class="experience-description">
+                        <li>working in&nbsp;Large-scale Scrum</li>
+                            <ul>
+                                <li>7-person team</li>
+                                <li>conduction weekly meetings</li>
+                            </ul>
+                        <li>redesigning SFI websites</li>
+                            <ul>
+                                <li>ensuring visual consistency with the&nbsp;festival's graphic theme</li>
+                                <li>redesigning sfi.pl</li>
+                                <li>redesigning workshop.sfi.pl</li>
+                            </ul>
+                        <li>designing the&nbsp;SFI newsletter</li>
+                        <li>moderating the creation of signage for the congress center where the festival took place</li>
+                    </ul>
+                    <a href="my_work.html" class="center-vertically">
+                        <button class="check-out-the-projects body-small">
+                            <span class="button-text">CHECK OUT THE PROJECTS</span>
+                        </button>
+                    </a>    
+                </div>
+            </div>
+            <div class="cv-section_container">
+                <h3>Softwares</h3>
+                <ul class="softwares-languages no-bullets">
+                    <li>Figma</li>
+                    <li>Affinity Designer</li>
+                    <li>Affinity Photo</li>
+                    <li>Blender</li>
+                </ul>                
+            </div>
+            <div class="cv-section_container">
+                <h3>Languages</h3>
+                <ul class="softwares-languages no-bullets">
+                    <li>Polish (native)</li>
+                    <li>English (C1)</li>
+                    <li>German (C1)</li>
+                    <li>French (B1)</li>
+                </ul>         
+            </div>
+            <div class="cv-section_container">
+                <h3>How do I work</h3>
+                <div class="turn-ideas-into-prototypes"> 
+                    <div id="trigger-point"></div>     
+                    <p class="body-italic">By following the steps of Design Thinking...</p>
+                    <p class="body-italic">I turn ideas...</p>
+                    <div class="design-thinking-shapes">
+                        <div class="shapes_container">
+                            <div class="shape" id="shape1">
+                                <p class="text-content" data-default="personas" data-transitioned="accessibility"></p>
+                            </div>
+                            <div class="shape" id="shape2">
+                                <p class="text-content" data-default="problem statement" data-transitioned="visual design"></p>
+                            </div>
+                            <div class="shape" id="shape3">
+                                <p class="text-content" data-default="user research" data-transitioned="interactions"></p>
+                            </div>
+                            <div class="shape" id="shape4">
+                                <p class="text-content" data-default="" data-transitioned=""></p>
+                            </div>
+                            <div class="shape" id="shape5">
+                                <p class="text-content" data-default="wireframes" data-transitioned="information architecture"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="body-italic">into high-fidelity prototypes.</p>
+                    <div class="new-shapes_container"></div>
+                </div>
+            </div>
+        </div>
+        <div class="intrigued">
+            <h2>Intrigued?</h2>
+            <p>
+                Chceck out
+                <a class="body-bold bold-link" href="my_work.html">my projects</a>
+                or
+                <a class="body-bold bold-link" href="contact.html">contact me</a>
+                straightaway.
+            </p>
+        </div>
+    </main>
+
+    <footer>
+        <p>© Patrycja Bobowska 2024, all rights reserved</p>
+    </footer>
+
+    <script src="styles/about_me.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</body>
+</html>
