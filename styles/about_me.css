@@ -300,10 +300,10 @@ body {
 
 @media (min-width: 591px) {
   #trigger-point {
-    /* visibility: hidden; */
+    visibility: hidden;
     position: absolute;
     top: 25%;
-    border: 4px solid limegreen;
+    /* border: 4px solid limegreen; */
     pointer-events: none; 
     width: 100%;
   }
@@ -327,7 +327,7 @@ body {
   transition: all 1s ease-in-out;
 }
 
-/* --------------- old shapes -------------- */
+/* --------------- shapes -------------- */
 #shape1 {
   position: absolute;
   top: 10px;
@@ -456,10 +456,10 @@ body {
   }
 
   #trigger-point {
-    /* visibility: hidden; */
+    visibility: hidden;
     position: absolute;
     top: 20%;
-    border: 4px solid limegreen;
+    /* border: 4px solid limegreen; */
     pointer-events: none; 
     width: 100%;
   }
