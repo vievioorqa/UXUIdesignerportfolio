@@ -61,11 +61,11 @@
 
 /* Apply the animations to respective characters */
 .character:nth-child(1) {
-    animation: moveDiagonallyBottomLeft 1s ease-out forwards;
+    animation: moveDiagonallyBottomLeft 1.7s ease-out forwards;
   }
   
 .character:nth-child(2) {
-    animation: moveDiagonallyTopRight 1s ease-out forwards;
+    animation: moveDiagonallyTopRight 1.7s ease-out forwards;
   }
 
   
