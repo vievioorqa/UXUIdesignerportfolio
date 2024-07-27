@@ -3,12 +3,13 @@
 button {
     border: none;
     padding: 0;
+    background-color: var(--background);
 }
 
 .button {
     text-decoration: none;
     text-align: center;
-    color: var(--dark-text);
+    color: var(--text);
     cursor: pointer;
     user-select: none;
     
@@ -34,7 +35,6 @@ button {
     /* clip-path: path("M18.0002 10.9997C47.0002 17.4997 75.5 -9.50046 82.0001 7.99972C88.5002 25.4999 118.5 -20.5 139 14.4998C159.5 49.4996 137 41 137 66.9997C137 92.9994 79.5001 53.9998 60.5001 63.9998C23.0551 83.7078 -8.99974 61.9995 3.5002 49.9997C16.0001 37.9999 -10.9999 4.49971 18.0002 10.9997Z"); */
     clip-path: path("M17.5 3.51089C30.1979 10.5636 26.6471 0.119748 32.0141 0.00893415C37.544 -0.105241 46.5566 5.95993 54.5 7C70.1529 9.04953 69.4999 -1.48911 78.4999 1.50001C87.4999 4.48913 91.0111 10.1238 91.0141 14.9438C91.0196 23.7743 83 16 87 28.5C91 41 71.1916 40.0615 67.0141 39.9942C59.6883 39.8762 41.9999 31.5 31.4999 35.5C7.59657 44.6061 4.99994 37 5.99994 33C6.99994 29 -2.0422e-05 30.5 1.01618 18C0.889091 11.9576 4.80211 -3.54183 17.5 3.51089Z");
     background-color: var(--yellow);
-    color: var(--dark-text);
 }
 
 .button.blue {
@@ -45,7 +45,7 @@ button {
 .button-settings {
     text-decoration: none;
     text-align: center;
-    color: var(--dark-text);
+    color: var(--text);
     cursor: pointer;
     user-select: none;
     
@@ -73,7 +73,7 @@ button {
     clip-path: path("M24.8447 3.50845C43.166 10.5563 38.0427 0.11967 45.7866 0.00893295C53.7653 -0.105163 66.7693 5.95579 78.2304 6.99514C100.815 9.04325 99.8731 -1.48807 112.859 1.49897C125.845 4.48602 130.911 10.1168 130.915 14.9334C130.923 23.7578 119.352 15.9889 125.123 28.4802C130.895 40.9715 102.314 40.0336 96.2865 39.9664C85.7164 39.8485 60.1946 31.4781 45.0446 35.4754C10.5555 44.5751 6.80897 36.9743 8.25182 32.9771C9.69468 28.9799 -0.40526 30.4788 1.06097 17.9875C0.8776 11.9493 6.52352 -3.53937 24.8447 3.50845Z");
     
     background-color: var(--yellow);
-    color: var(--dark-text);
+    color: var(--text);
 }
 
 
@@ -81,14 +81,14 @@ button {
 
 
 a:link, a:visited {
-    color: var(--dark-text);
+    color: #000000;;
     text-decoration: none;
     /* padding-left: 8px; */
     transition: all 0.5s ease-in-out;
 }
   
 a:link:active, a:visited:active {
-    color: var(--dark-text);
+    color: #000000;;
     letter-spacing: 4px;
 }
 

@@ -29,7 +29,7 @@ body {
     padding-top: 70px;
   
     font-size: 1rem;
-    color: var(--dark-text);
+    color: var(--text);
   
     background-color: var(--background);
   }
