@@ -64,14 +64,14 @@
                 </label>
                 <!-- language | dark mode -->
                 <div class="settings"> 
-                    <div class="language_button">
+                    <!-- <div class="language_button">
                         <i class="material-symbols-rounded">language</i>
                         <p>pl</p>
                     </div>
                     <div class="language_button">
                         <i class="material-symbols-rounded">language</i>
                         <p>eng</p>
-                    </div>
+                    </div> -->
                     <div class="settings_button" aria-label="toggle light mode" id="light-mode-toggle">
                         <i class="material-symbols-rounded">wb_sunny</i>
                     </div>
@@ -99,19 +99,25 @@
                     <p class="body-bold">patrycja.bobowska@student.uj.edu.pl</p>
                     <form>
                         <div class="your-email">
-                            <label for="e-mail">your email:</label>
+                            <label for="e-mail">your&nbsp;email:</label>
                             <input type="email">
                         </div>
                         <div class="your-message">
-                            <label for="message">your message:</label>
-                            <textarea name="message" rows="10" cols="30"></textarea>
+                            <label for="message">your&nbsp;message:</label>
+                            <textarea name="message"></textarea>
                         </div>
-                        <input type="submit" value="send">
+                        <div class="button_container">
+                            <input type="submit" value="send" class="button">
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
     </main>
+
+    <footer>
+        <p>© Patrycja Bobowska 2024, all rights reserved</p>
+    </footer>
     
     <script src="scripts/dark-mode.js"></script>
 </body>
