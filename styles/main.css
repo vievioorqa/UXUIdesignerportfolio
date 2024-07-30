@@ -75,6 +75,11 @@ html {
   --background-secondary: #282625;
 }
 
+.text-increase {
+    font-size: 18px;
+}
+
+
 /* headers */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Oranienbaum', serif;

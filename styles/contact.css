@@ -68,6 +68,7 @@ form {
 textarea, input {
     background-color: var(--background);
     border-radius: 5px;
+    color: var(--text);
     border: solid 1px var(--text);
     padding: 0.5rem;
 }
@@ -81,4 +82,5 @@ textarea {
 .button_container {
     display: flex;
     justify-content: flex-end;
+    text-align: center;
 }
