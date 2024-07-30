@@ -426,6 +426,9 @@ body {
   opacity: 15%; /* 10% opacity when checked */
   visibility: visible;
 }
+#settings-overlay.dark-mode-opacity {
+  opacity: 100%;
+}
 /* ---------- end sidebar ------------- */
 
 
@@ -706,6 +709,7 @@ nav {
   overflow: hidden;
   width: 90vw; /* Use vw for a scalable width */
   padding: 1rem;
+  /* padding-left: 0; */
   padding-left: 2rem;
   user-select: none;
 }
@@ -739,7 +743,7 @@ nav {
 
 .my-work_image {
   border-radius: 5px;
-  margin-top: 0.7rem;
+  margin-top: 0.4rem;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
@@ -768,8 +772,9 @@ nav {
   left: 0.5rem;
 }
 .arrow-right {
-  right: 0.5rem;
+  right: 1.5rem;
 }
+
 
 .arrow-left.inactive, .arrow-right.inactive {
   opacity: 20%;

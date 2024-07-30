@@ -3,6 +3,7 @@ const darkModeToggle = document.querySelector("#dark-mode-toggle");
 const lightModeToggle = document.querySelector("#light-mode-toggle");
 const logoElement = document.querySelector("#logoElement");
 
+
 const enableDarkMode = () => {
     document.body.classList.add('dark-mode');
     darkModeToggle.classList.add('hidden');

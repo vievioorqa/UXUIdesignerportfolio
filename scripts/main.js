@@ -77,25 +77,33 @@ function updateArrows() {
 function slideLeft() {
   const slider = document.querySelector('.my-work_elements');
   const images = document.querySelectorAll('.my-work_image_container');
-  const imageWidth = images[0].clientWidth + parseInt(getComputedStyle(images[0]).marginRight, 10);
+  const gap = 32; //.my-work_elements{ gap: 2rem; }
+  const imageWidth = images[0].clientWidth + gap;
 
   if (currentIndex > 0) {
     currentIndex--;
     slider.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
     updateArrows();
   }
+  console.log('Current Index:', currentIndex);
+  console.log('Images Length:', images.length);
+  console.log('Window Width:', window.innerWidth);
 }
 
 function slideRight() {
   const slider = document.querySelector('.my-work_elements');
   const images = document.querySelectorAll('.my-work_image_container');
-  const imageWidth = images[0].clientWidth + parseInt(getComputedStyle(images[0]).marginRight, 10);
+  const gap = 32; //.my-work_elements{ gap: 2rem; }
+  const imageWidth = images[0].clientWidth + gap;
 
   if (currentIndex < images.length - 1) {
     currentIndex++;
     slider.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
     updateArrows();
   }
+  console.log('Current Index:', currentIndex);
+  console.log('Images Length:', images.length);
+  console.log('Window Width:', window.innerWidth);
 }
 
 // Initialize arrow states
