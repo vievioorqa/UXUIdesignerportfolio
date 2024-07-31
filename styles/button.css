@@ -36,7 +36,8 @@ button {
 }
 
 .button.blue {
-    background-color: var(--blue-light);
+    background-color: var(--blue-secondary);
+    color: var(--text);
 }
 
 

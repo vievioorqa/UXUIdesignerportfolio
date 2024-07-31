@@ -2,6 +2,8 @@ let darkMode = localStorage.getItem("darkMode"); // is updated every time someon
 const darkModeToggle = document.querySelector("#dark-mode-toggle");
 const lightModeToggle = document.querySelector("#light-mode-toggle");
 const logoElement = document.querySelector("#logoElement");
+const borderCaseStudyBefore = document.querySelector("#wavy-border_before");
+const borderCaseStudyAfter = document.querySelector("#wavy-border_after");
 
 
 const enableDarkMode = () => {
@@ -10,6 +12,10 @@ const enableDarkMode = () => {
     lightModeToggle.classList.remove('hidden');
     localStorage.setItem('darkMode', 'enabled');
     logoElement.src = "images/logo-light.png"; // Change logo for light mode
+    if (window.location.pathname.endsWith('my_work-case_study.html')) {
+        borderCaseStudyBefore.classList.add('wavy-border-dark');
+        borderCaseStudyAfter.classList.add('wavy-border-dark');
+    }
 };
 
 const disableDarkMode = () => {
@@ -18,6 +24,10 @@ const disableDarkMode = () => {
     lightModeToggle.classList.add('hidden');
     localStorage.setItem('darkMode', 'disabled');
     logoElement.src = "images/logo.png"; // Change logo for light mode
+    if (window.location.pathname.endsWith('my_work-case_study.html')) {
+        borderCaseStudyBefore.classList.remove('wavy-border-dark');
+        borderCaseStudyAfter.classList.remove('wavy-border-dark');
+    }
 };
 
 // Check the current mode and set the initial state

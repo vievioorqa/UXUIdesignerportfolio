@@ -48,7 +48,7 @@ html {
     --yellow-light: #F5D977;
     --blue-dark: #1E3B8A;
     --blue-medium: #b1c4da;
-    --blue-light: #D7DEE5;
+    --blue-secondary: #D7DEE5;
     --rose-dark: #883130;
     --rose-light: #E5C5C2;
 
@@ -63,9 +63,8 @@ html {
   --orange: #EE9105;
   --yellow: #EEB905;
   --yellow-light: #F5D977;
-  --blue-dark: #1E3B8A;
   --blue-medium: #b1c4da;
-  --blue-light: #D7DEE5;
+  --blue-secondary: #082262;
   --rose-dark: #883130;
   --rose-light: #E5C5C2;
 
@@ -446,6 +445,7 @@ body {
 
 .menu_button {
   background-color: var(--yellow);
+  color: black !important;
   border-radius: 50%;
   padding: 5px;
   cursor: pointer;
@@ -508,7 +508,6 @@ body {
 
   .close-menu_button {
       display: block;
-      align-self: flex-start;
       cursor: pointer;
   }
 
