@@ -50,7 +50,7 @@ body {
     padding-top: 3rem;
     width: 100%;
     /* gap: 2rem; */
-    /* background-color: var(--blue-secondary); */
+    /* background-color: var(--blue-primary); */
     /* max-width: 100%; */
     padding-bottom: 2rem;
 }
@@ -139,7 +139,9 @@ body {
     gap: 1rem;
     background-color: var(--background);
     border-radius: 10px;
-    padding: 0.75rem;
+    padding: 1rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
     max-width: 100%;
 }
 
@@ -361,7 +363,7 @@ p {
   width: 100%;
   /* top: 240px; */
   /* left: 0; */
-  background-color: var(--blue-secondary);
+  background-color: var(--blue-primary);
   /* z-index: -1; */
   padding-bottom: 3rem;
   /* padding-top: 4rem; */
