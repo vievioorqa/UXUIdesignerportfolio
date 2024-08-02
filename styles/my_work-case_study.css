@@ -241,37 +241,7 @@ body {
     border-radius: 5px;
 }
 
-.color-palette {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
 
-.color1 {
-    width: 50px;
-    height: 50px;
-    background-color: black;
-}
-.color2 {
-    width: 50px;
-    height: 50px;
-    background-color: #16425A;
-}
-.color3 {
-    width: 50px;
-    height: 50px;
-    background-color: #27749D;
-}
-.color4 {
-    width: 50px;
-    height: 50px;
-    background-color: #38A5E0;
-}
-.color5 {
-    width: 50px;
-    height: 50px;
-    background-color: #F48120;
-}
 
 .design-foundations_typography-colorpalette {
     display: flex;
@@ -280,6 +250,21 @@ body {
     column-gap: 10rem;
     row-gap: 3rem;
 }
+
+.color-palette {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.color-square {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+
 
 
 

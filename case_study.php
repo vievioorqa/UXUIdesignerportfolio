@@ -3,25 +3,41 @@
 	$conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname) or die('Bład połączenia z serwerem: '.mysqli_connect_error($conn));
     
     session_start();
-    if(isset($_GET['id_case_study'])){
+    if (isset ($_GET['id_case_study']) ) {
         $_SESSION['id_case_study'] = $_GET['id_case_study'];	
     }
-
+    if (!isset($_SESSION['id_case_study'])) {
+        die('Case study ID not set.');
+    }
     $chosen_case_study = $_SESSION['id_case_study'];
 
-    $case_studies = mysqli_query($conn, "SELECT id_case_study, title, objective FROM Case_study WHERE id_case_study='".$chosen_case_study."';");
+    $case_study = mysqli_query($conn, "SELECT id_case_study, title, objective FROM Case_study WHERE id_case_study='".$chosen_case_study."';");
+    $case_studies_number = mysqli_query($conn, "SELECT COUNT(id_case_study) AS `number` FROM Case_study;");
     $limitations = mysqli_query($conn, "SELECT limitation FROM Limitations WHERE id_case_study='".$chosen_case_study."';");
     $persona = mysqli_query($conn, "SELECT * FROM Persona WHERE id_case_study='".$chosen_case_study."';");
-    $needs_frustrations = mysqli_query($conn, "SELECT need, frustration FROM Needs_Frustrations WHERE id_case_study='".$chosen_case_study."';");
+    $needs = mysqli_query($conn, "SELECT need FROM Needs_Frustrations WHERE id_case_study='".$chosen_case_study."';");
+    $frustrations = mysqli_query($conn, "SELECT frustration FROM Needs_Frustrations WHERE id_case_study='".$chosen_case_study."';");
     $wireframes = mysqli_query($conn, "SELECT img_title FROM Wireframes WHERE id_case_study='".$chosen_case_study."';");
-    $fonts = mysqli_query($conn, "SELECT font FROM Typography WHERE id_case_study='".$chosen_case_study."';");
+    $fonts = mysqli_query($conn, "SELECT font, link FROM Typography WHERE id_case_study='".$chosen_case_study."';");
     $colors = mysqli_query($conn, "SELECT color FROM Color_palette WHERE id_case_study='".$chosen_case_study."';");
-    $examples = mysqli_query($conn, "SELECT title, image_before, image_after FROM Example WHERE id_case_study='".$chosen_case_study."';");
-    $example_descriptions = mysqli_query($conn, 
-    "SELECT Example_description.description_title, Example_description.description, Example.example_title, Example.image_before, Example.image_after 
-    FROM Example_description INNER JOIN Example ON 
-    Example_description.image_before=Example.image_before OR Example_description.image_after=Example.image_after 
-    WHERE Example.id_case_study='".$chosen_case_study."';");
+    $examples_before = mysqli_query($conn, "SELECT example_title, image_before FROM Example WHERE id_case_study='".$chosen_case_study."';");
+    $examples_after = mysqli_query($conn, "SELECT example_title, image_after FROM Example WHERE id_case_study='".$chosen_case_study."';");
+    // $example_descriptions = mysqli_query($conn, 
+    // "SELECT Example_description.description_title, Example_description.description, Example.example_title, Example.image_before, Example.image_after 
+    // FROM Example_description INNER JOIN Example ON 
+    // Example_description.image_before=Example.image_before OR Example_description.image_after=Example.image_after 
+    // WHERE Example.id_case_study='".$chosen_case_study."';");
+
+    if ($persona) {
+        $persona_array = mysqli_fetch_array($persona);
+    }
+
+    $number = mysqli_fetch_array($case_studies_number);
+    define('CASE_STUDIES_NUMBER', $number['number']);
+
+    $previous = $chosen_case_study - 1;
+    $next = $chosen_case_study + 1;
+
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +70,7 @@
             <!-- navigation -->
             <div class="navigation">
                 <!-- logo -->
-                <a href="index.html"><img src="images/logo.png" alt="logo" class="logo-small" id="logoElement"></a>
+                <a href="index.php"><img src="images/logo.png" alt="logo" class="logo-small" id="logoElement"></a>
                 <!-- menu -->
                 <input type="checkbox" id="menu-active">
                 <label id="menu-overlay" for="menu-active"></label>
@@ -63,7 +79,7 @@
                         <i class="material-symbols-outlined">close</i>
                     </label>
                     <div class="menu">
-                        <button><a type="button" class="button" href="my_work.html">my work</a></button>
+                        <button><a type="button" class="button" href="my_work.php">my work</a></button>
                         <button><a type="button" class="button" href="about_me.html">about me</a></button>
                         <button><a type="button" class="button" href="contact.html">contact</a></button>
                     </div>
@@ -121,16 +137,27 @@
                 <i class="material-symbols-rounded">keyboard_arrow_down</i>
             </div>
             <div class="previous-next_buttons">
-                <button><a type="button" class="button blue" href="">previous</a></button>
-                <button><a type="button" class="button blue" href="">next</a></button>
+                <?php
+                // var_dump($chosen_case_study, $previous, $next, CASE_STUDIES_NUMBER);
+                    if ($chosen_case_study > 1){
+                        echo '<button><a type="button" class="button blue" href="case_study.php?id_case_study='.$previous.'">previous</a></button>';
+                    }
+                    if ($chosen_case_study < CASE_STUDIES_NUMBER ) {
+                        echo '<button><a type="button" class="button blue" href="case_study.php?id_case_study='.$next.'">next</a></button>';
+                    }
+                ?>
             </div>
         </div>
         <div class="wavy-border_before" id="wavy-border_before"></div>
         <div class="wavy-border">
             <div class="casestudy_container">
                 <div class="casestudy-number-title">
-                    <p class="casestudy-number">01/04</p>
-                    <h1>SFI website</h1>
+                    <?php
+                        echo '<p class="casestudy-number">' .$chosen_case_study. ' / ' .CASE_STUDIES_NUMBER. '</p>';
+                        if ( $case_study_array = mysqli_fetch_array($case_study) ) {
+                            echo '<h1>'.$case_study_array['title'].'</h1>';
+                        }
+                    ?>
                 </div>
                 <div class="casestudy">
                     <div class="design-foundations_container border-top">
@@ -138,126 +165,125 @@
                         <div class="design-foundations_objective-limitations">
                             <div class="design-foundations_element">
                                 <h4>Project's objective</h4>
-                                <p>Redesigning website for Students' Informatics Festival (SFI)</p>
+                                <?php
+                                    echo '<p>' .$case_study_array['objective']. '</p>';
+                                ?>
                             </div>
                             <div class="design-foundations_element">
                                 <h4>Limitations</h4>
                                 <ul>
-                                    <li>2 month deadline</li>
-                                    <li>part-time working programers (volunteers)</li>
+                                    <?php
+                                        while($limitation_array = mysqli_fetch_array($limitations)) {
+                                            echo '<li>' .$limitation_array['limitation']. '</li>';
+                                        }
+                                    ?>
                                 </ul>
                             </div>
                         </div>
-                        <div class="design-foundations_element">
-                            <h4>Persona</h4>
-                            <div class="persona">
-                                    <p class="body-bold">Lena Kowalska</p>
-                                    <div class="persona_img-traits-description">
-                                        <div class="persona_img-traits">
-                                            <img src="images/girl.png" alt="" class="persona_img">
-                                            <ul class="persona_traits">
-                                                <li>Age: 22 years</li>
-                                                <li>Gender: Female</li>
-                                                <li>Residence: Krakow, Poland</li>
-                                                <li>Occupation: Student (Management and New Media); Intern</li>
-                                                <li>Hobbies: Photography, Meeting friends, New technologies</li>
-                                                <li>Favorite brand: Apple</li>
-                                            </ul>
-                                        </div>
-                                        <div class="persona_description">
-                                            <p>Lena, a twenty-two-year-old student from Kraków, is a passionate photographer who is not only fascinated by the art of imagery but also follows the latest technological trends. Her enthusiasm for new things combines with her desire to spend time with friends, where she shares her passion and creativity.</p>
-                                        </div>
-                                    </div>
-                                    <div class="persona_needs-frustrations">
-                                        <div class="persona_needs">
-                                            <p class="body-bold">Goals & needs</p>
-                                            <p class="body-italic">in terms of SFI website</p>
-                                            <ul>
-                                                <li>I like interactive, colorful elements on websites. Even simple animations captivate me. I believe that a website should be dynamic and engaging for the user.</li>
-                                                <li>I like good quality graphics.</li>
-                                                <li>I like to know what I will gain from this festival (certificate).</li>
-                                                <li>I want the option to change the website's theme (light-dark).</li>
-                                                <li>I need easy access to speakers and sponsors (prestige of the event).</li>
-                                                <li>I need easy contact with SFI organizers.
-                                                <li>A chillout zone and contests would convince me to attend SFI.</li>
-                                            </ul>
-                                        </div>
-                                        <div class="persona_frustrations">
-                                            <p class="body-bold">Frustrations</p>
-                                            <p class="body-italic">in terms of SFI website</p>
-                                            <ul>
-                                                <li>Some elements of the current website aren't well displayed on mobile.</li>
-                                                <li>The excess and disorder of information on the website annoy me.</li>
-                                                <li>In the menu, I cannot find quickly the things that I want.</li>
-                                                <li>The Auditorium Maximum map is unreadable.</li>
-                                                <li>In the schedule, it's hard to distinguish what is a lecture, what is a workshop, and what is a Lightning Talk.</li>
-                                                <li>In the workshops, there is no information that there are limited places or the registration period.</li>
-                                                <li>Specific workshops and lectures lack information about their exact location.</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                        </div>
+                        <?php
+                        if ($persona) {
+                            echo '<div class="design-foundations_element">';
+                            echo '    <h4>Persona</h4>';
+                            echo '    <div class="persona">';
+                            echo '    <p class="body-bold">' . $persona_array['name'] . '</p>';
+                            echo '    <div class="persona_img-traits-description">';
+                            echo '    <div class="persona_img-traits">';
+                            echo '        <img src="database_images/' . $persona_array['image'] . '" alt="" class="persona_img">';
+                            echo '        <ul class="persona_traits">';
+                            echo '            <li>Age: ' . $persona_array['age'] . '</li>';
+                            echo '            <li>Gender: ' . $persona_array['gender'] . '</li>';
+                            echo '            <li>Residence: ' . $persona_array['residence'] . '</li>';
+                            echo '            <li>Occupation: ' . $persona_array['occupation'] . '</li>';
+                            echo '            <li>Hobbies: ' . $persona_array['hobbies'] . '</li>';
+                            echo '            <li>Favorite brand: ' . $persona_array['favorite_brand'] . '</li>';                                                
+                            echo '        </ul>';
+                            echo '    </div>';
+                            echo '    <div class="persona_description">';
+                            echo '        <p>' . $persona_array['description'] . '</p>';
+                            echo '    </div>';
+                            echo '</div>';
+                            echo '<div class="persona_needs-frustrations">';
+                            echo '    <div class="persona_needs">';
+                            echo '        <p class="body-bold">Goals & needs</p>';
+                            echo '        <ul>';
+                                                while ( $needs_array = mysqli_fetch_array($needs) ) {
+                                                    echo '<li>' . $needs_array['need'] . '</li>';
+                                                }
+                            echo '        </ul>';
+                            echo '    </div>';
+                            echo '    <div class="persona_frustrations">';
+                            echo '        <p class="body-bold">Frustrations</p>';
+                            echo '        <ul>';
+                                                while ( $frustrations_array = mysqli_fetch_array($frustrations) ) {
+                                                    echo '<li>' . $frustrations_array['frustration'] . '</li>';
+                                                }
+                            echo '        </ul>';
+                            echo '    </div>';
+                            echo '</div>';
+                        }
+                        ?>
                         <div class="design-foundations_element">
                             <h4>Wireframes</h4>
                             <div class="wireframes">
-                                <img src="images/wireframe1.png" alt="" class="wireframe_img">
-                                <img src="images/wireframe2.png" alt="" class="wireframe_img">
-                                <img src="images/wireframe3.png" alt="" class="wireframe_img">
+                                <?php
+                                    while ( $wireframes_array = mysqli_fetch_array($wireframes) ) {
+                                        echo '<img src="database_images/'.$wireframes_array['img_title'].'" alt="" class="wireframe_img">';
+                                    }
+                                ?>
                             </div>
                         </div>
                         <div class="design-foundations_typography-colorpalette">
                             <div class="design-foundations_element">
                                 <h4>Typography</h4>
-                                <p>Bruno Ace</p>
-                                <p>Montserrat</p>
+                                <?php
+                                    while ( $fonts_array = mysqli_fetch_array($fonts) ) {
+                                        echo '<a class="body-bold bold-link" href="' .$fonts_array['link']. '"><p>'.$fonts_array['font'].'</p></a> ';
+                                    }
+                                ?>
                             </div>
                             <div class="design-foundations_element">
                                 <h4>Color palette</h4>
                                 <div class="color-palette">
-                                    <div class="color1"></div>
-                                    <div class="color2"></div>
-                                    <div class="color3"></div>
-                                    <div class="color4"></div>
-                                    <div class="color5"></div>
+                                    <?php
+                                        while ( $colors_array = mysqli_fetch_array($colors) ) {
+                                            echo '<div class="color-square">';
+                                                echo '<div style="width: 50px; height: 50px; background-color: '.$colors_array['color'].';"></div>';
+                                                echo $colors_array['color'] . '<br>';
+                                            echo '</div>';
+                                        }
+                                    ?>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="design-comparison_container border-top">
                         <h2 class="serif-capslock">Design comparison</h2>
-                        <!-- -------------- TU ------------------ -->
                         <div class="design-comparison">
                             <div class="design-comparison-before-after_container">
-                                <h3>SFI website before</h3>
+                                <h3>Before</h3>
                                 <div class="design-comparison-before-after_examples">
                                     <div class="design-comparison-before-after_example">
-                                        <h4>Home page</h4>
-                                        <div class="example_images-description">
-                                            <div class="example-images">
-                                                <img src="images/stare sfi główna.png" alt="">
-                                            </div>
-                                            <div class="example-description">
-                                                <div>
-                                                    <h5>Poor responsiveness</h5>
-                                                    <p>The menu is in a form of a hamburger despite the fact that it is a desktop view.</p>
-                                                </div>
-                                                <div>
-                                                    <h5>Repetitive data</h5>
-                                                    <p>the name of the Festival is mentioned 3 times within one desktop view.</p>
-                                                </div>
-                                                <div>
-                                                    <h5>Bad visual hierarchy</h5>
-                                                    <p>The orange graphic draws most attention, therefore the most valid information - the place and date of the Event - is hard to notice.</p>
-                                                </div>
-                                                <div>
-                                                    <h5>Confusing Information Architecture</h5>
-                                                    <p>The section with lectures schedule has no header. The filters are mixed despite the fact that they represent different catergories.</p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <?php
+                                            while ( $examples_array = mysqli_fetch_array($examples_before) ) {
+                                                echo '<h4>' .$examples_array['example_title']. '</h4>';
+                                                echo '<div class="example_images-description">';
+                                                echo '    <div class="example-images">';
+                                                echo '        <img src="database_images/' .$examples_array['image_before']. '" alt="">';
+                                                echo '    </div>';
+                                                echo '    <div class="example-description">';
+                                                echo '        <div>';
+                                                            $example_descriptions_result = mysqli_query($conn, "SELECT description_title, description FROM Example_description WHERE image_before='" . $examples_array['image_before'] . "'");
+                                                                while ( $example_descriptions_array = mysqli_fetch_array($example_descriptions_result) ) {
+                                                                    echo ' <h5>' .$example_descriptions_array['description_title']. '</h5>';
+                                                                    echo ' <p>' .$example_descriptions_array['description']. '</p>';
+                                                                }
+                                                echo '        </div>';
+                                                echo '    </div>';
+                                                echo '</div>';
+                                            }
+                                        ?>
                                     </div>
-                                    <div class="design-comparison-before-after_example">
+                                    <!-- <div class="design-comparison-before-after_example">
                                         <div class="design-comparison-before-after_example">
                                             <h4>Lecture</h4>
                                             <div class="example_images-description">
@@ -299,80 +325,30 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                             <div class="design-comparison-before-after_container">
-                                <h3>SFI website after</h3>
-                                <div class="design-comparison-before-after_example">
-                                    <h4>Home page</h4>
-                                    <div class="example_images-description">
-                                        <div class="example-images">
-                                            <img src="images/stare sfi główna.png" alt="">
-                                        </div>
-                                        <div class="example-description">
-                                            <div>
-                                                <h5>Poor responsiveness</h5>
-                                                <p>The menu is in a form of a hamburger despite the fact that it is a desktop view.</p>
-                                            </div>
-                                            <div>
-                                                <h5>Repetitive data</h5>
-                                                <p>the name of the Festival is mentioned 3 times within one desktop view.</p>
-                                            </div>
-                                            <div>
-                                                <h5>Bad visual hierarchy</h5>
-                                                <p>The orange graphic draws most attention, therefore the most valid information - the place and date of the Event - is hard to notice.</p>
-                                            </div>
-                                            <div>
-                                                <h5>Confusing Information Architecture</h5>
-                                                <p>The section with lectures schedule has no header. The filters are mixed despite the fact that they represent different catergories.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="design-comparison-before-after_example">
-                                    <div class="design-comparison-before-after_example">
-                                        <h4>Lecture</h4>
-                                        <div class="example_images-description">
-                                            <div class="example-images">
-                                                <img src="images/stare sfi prelekcja.png" alt="">
-                                            </div>
-                                            <div class="example-description">
-                                                <div>
-                                                    <h5>Useless information</h5>
-                                                    <p>The orange graphic with the name of the event draws most attention yet it is irrelevant for this lecture subpage. The user must have already seen it on the home page.</p>
-                                                </div>
-                                                <div>
-                                                    <h5>Bad Information Architecture</h5>
-                                                    <p>First information under the title is again name and number of the edition, which is repeatedly mentioned.
-                                                        The name of the lecturer should be integral with the title of the lecture, yet it is placed far from it.
-                                                        The date is not distinguished in any way from other, less important information. </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="design-comparison-before-after_example">
-                                    <div class="design-comparison-before-after_example">
-                                        <h4>Download section</h4>
-                                        <div class="example_images-description">
-                                            <div class="example-images">
-                                                <img src="images/stare sfi sekcja pobieranina.png" alt="">
-                                                <img src="images/stare sfi mapa.png" alt="">
-                                            </div>
-                                            <div class="example-description">
-                                                <div>
-                                                    <h5>Bla bla</h5>
-                                                    <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.</p>
-                                                </div>
-                                                <div>
-                                                    <h5>Bla bla</h5>
-                                                    <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <h3>After</h3>
+                                <?php
+                                    while ( $examples_array = mysqli_fetch_array($examples_after) ) {
+                                        echo '<h4>' .$examples_array['example_title']. '</h4>';
+                                        echo '<div class="example_images-description">';
+                                        echo '    <div class="example-images">';
+                                        echo '        <img src="database_images/' .$examples_array['image_after']. '" alt="">';
+                                        echo '    </div>';
+                                        echo '    <div class="example-description">';
+                                        echo '        <div>';
+                                                    $example_descriptions_result = mysqli_query($conn, "SELECT description_title, description FROM Example_description WHERE image_after='" . $examples_array['image_after'] . "'");
+                                                        while ( $example_descriptions_array = mysqli_fetch_array($example_descriptions_result) ) {
+                                                            echo ' <h5>' .$example_descriptions_array['description_title']. '</h5>';
+                                                            echo ' <p>' .$example_descriptions_array['description']. '</p>';
+                                                        }
+                                        echo '        </div>';
+                                        echo '    </div>';
+                                        echo '</div>';
+                                    }
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -381,8 +357,15 @@
         </div>
         <div class="wavy-border_after" id="wavy-border_after"></div>
         <div class="previous-next_buttons-end">
-            <button><a type="button" class="button blue" href="">previous</a></button>
-            <button><a type="button" class="button blue" href="">next</a></button>
+            <?php
+            // var_dump($chosen_case_study, $previous, $next, CASE_STUDIES_NUMBER);
+                if ($chosen_case_study > 1){
+                    echo '<button><a type="button" class="button blue" href="case_study.php?id_case_study='.$previous.'">previous</a></button>';
+                }
+                if ($chosen_case_study < CASE_STUDIES_NUMBER ) {
+                    echo '<button><a type="button" class="button blue" href="case_study.php?id_case_study='.$next.'">next</a></button>';
+                }
+            ?>
         </div>
     </main>
     

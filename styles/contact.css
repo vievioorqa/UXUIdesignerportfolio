@@ -84,3 +84,10 @@ textarea {
     justify-content: flex-end;
     text-align: center;
 }
+
+.notification-style {
+    display: block;
+    padding-top: 1rem;
+    text-align: end;
+    color: var(--green);
+}

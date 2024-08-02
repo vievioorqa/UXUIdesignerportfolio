@@ -156,7 +156,7 @@
                                 echo '<div class="my-work_image_container">';
                                     echo '<p>'.$case_study['id_case_study'].'</p>'; 
                                     echo '<h3>'.$case_study['title'].'</h3>';
-                                    echo '<a href="case_study.php?id=' .$case_study['id_case_study']. '"><img src="database_images/'.$case_study['img_title'].'" alt="" class="my-work_image"></a>';
+                                    echo '<a href="case_study.php?id_case_study=' .$case_study['id_case_study']. '"><img src="database_images/'.$case_study['img_title'].'" alt="" class="my-work_image"></a>';
                                 echo '</div>';
                             }
                         ?>

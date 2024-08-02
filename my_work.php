@@ -1,3 +1,12 @@
+<?php	
+	include 'authorization.php';
+	$conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname) or die('Bład połączenia z serwerem: '.mysqli_connect_error($conn));		
+
+    $case_studies = mysqli_query($conn, "SELECT title, img_title, id_case_study FROM Case_study ORDER BY id_case_study;")
+	    or die("Błąd w zapytaniu do tabeli Case_study");
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +15,7 @@
     <link rel="icon" href="images/logo-square.png" type="image/png">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/button.css">
-    <link rel="stylesheet" href="styles/contact.css">
+    <link rel="stylesheet" href="styles/my_work.css">
     <link rel="stylesheet" href="styles/header-subpages.css">
     <link rel="stylesheet" href="styles/footer.css">
     <!-- google fonts -->
@@ -19,7 +28,7 @@
         <!-- icons -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <title>Contact | Patrycja Bobowska</title>
+    <title>My work | Patrycja Bobowska</title>
 </head>
 
 <body class="noto-sans-display-body">
@@ -88,43 +97,27 @@
             </div>
     </header>
 
-    <main>
-        <h1>Contact</h1>
-        <div class="contact_container">
-            <div class="photo-description_container">
-                <img src="images/profilowe.jpg" alt="" class="my-photo">
-                <p>Patrycja Bobowska</p>
-            </div>
-            <div class="call-email_container">
-                <div class="call-me_container">
-                    <h2>Call&nbsp;me</h2>
-                    <p class="body-bold">+48&nbsp;395&nbsp;021&nbsp;953</p>
-                </div>
-                <div class="email_container">
-                    <h2>E-mail me</h2>
-                    <p class="body-bold">patrycja.bobowska@student.uj.edu.pl</p>
-                    <form>
-                        <div class="your-email">
-                            <label for="email">your&nbsp;email:</label>
-                            <input type="email" id="email" name="email" required autocomplete="email"> <!-- Added id and name attributes -->
-                        </div>
-                        <div class="your-message">
-                            <label for="message">your&nbsp;message:</label>
-                            <textarea id="message" name="message" required></textarea> <!-- Added id and name attributes -->
-                        </div>
-                        <div class="button_container">
-                            <input type="submit" value="send" class="button">
-                        </div>
-                    </form>
-                </div>
-            </div>
+    <main class="my-work_container_subpage">
+        <!-- My work -->
+        <h2>My work</h2>
+        <div class="my-work_elements_subpage"> 
+            <?php
+                while($case_study = mysqli_fetch_array($case_studies)){
+                    echo '<div class="my-work_image_container">';
+                        echo '<p>'.$case_study['id_case_study'].'</p>'; 
+                        echo '<h3>'.$case_study['title'].'</h3>';
+                        echo '<a href="case_study.php?id_case_study=' .$case_study['id_case_study']. '"><img src="database_images/'.$case_study['img_title'].'" alt="" class="my-work_image"></a>';
+                    echo '</div>';
+                }
+            ?>
         </div>
     </main>
 
     <footer>
         <p>© Patrycja Bobowska 2024, all rights reserved</p>
     </footer>
-    
+
+    <!-- <script src="styles/main.js"></script> -->
     <script src="scripts/dark-mode.js"></script>
     <script src="scripts/text-increase.js"></script>
 </body>
