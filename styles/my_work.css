@@ -4,8 +4,10 @@
 .my-work_container_subpage {
     display: flex;
     flex-direction: column;
+    flex: 1;
     gap: 2.5rem;
     margin-top: 3rem;
+    min-height: fit-content;
   }
 
 .my-work_elements_subpage {

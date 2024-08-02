@@ -45,7 +45,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="images/logo-square.png" type="image/png">
+    <link rel="icon" href="static_images/logo-square.png" type="image/png">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/button.css">
     <link rel="stylesheet" href="styles/my_work-case_study.css">
@@ -70,7 +70,7 @@
             <!-- navigation -->
             <div class="navigation">
                 <!-- logo -->
-                <a href="index.php"><img src="images/logo.png" alt="logo" class="logo-small" id="logoElement"></a>
+                <a href="index.php"><img src="static_images/logo.png" alt="logo" class="logo-small" id="logoElement"></a>
                 <!-- menu -->
                 <input type="checkbox" id="menu-active">
                 <label id="menu-overlay" for="menu-active"></label>
@@ -181,53 +181,55 @@
                             </div>
                         </div>
                         <?php
-                        if ($persona) {
-                            echo '<div class="design-foundations_element">';
-                            echo '    <h4>Persona</h4>';
-                            echo '    <div class="persona">';
-                            echo '    <p class="body-bold">' . $persona_array['name'] . '</p>';
-                            echo '    <div class="persona_img-traits-description">';
-                            echo '    <div class="persona_img-traits">';
-                            echo '        <img src="database_images/' . $persona_array['image'] . '" alt="" class="persona_img">';
-                            echo '        <ul class="persona_traits">';
-                            echo '            <li>Age: ' . $persona_array['age'] . '</li>';
-                            echo '            <li>Gender: ' . $persona_array['gender'] . '</li>';
-                            echo '            <li>Residence: ' . $persona_array['residence'] . '</li>';
-                            echo '            <li>Occupation: ' . $persona_array['occupation'] . '</li>';
-                            echo '            <li>Hobbies: ' . $persona_array['hobbies'] . '</li>';
-                            echo '            <li>Favorite brand: ' . $persona_array['favorite_brand'] . '</li>';                                                
-                            echo '        </ul>';
-                            echo '    </div>';
-                            echo '    <div class="persona_description">';
-                            echo '        <p>' . $persona_array['description'] . '</p>';
-                            echo '    </div>';
-                            echo '</div>';
-                            echo '<div class="persona_needs-frustrations">';
-                            echo '    <div class="persona_needs">';
-                            echo '        <p class="body-bold">Goals & needs</p>';
-                            echo '        <ul>';
-                                                while ( $needs_array = mysqli_fetch_array($needs) ) {
-                                                    echo '<li>' . $needs_array['need'] . '</li>';
-                                                }
-                            echo '        </ul>';
-                            echo '    </div>';
-                            echo '    <div class="persona_frustrations">';
-                            echo '        <p class="body-bold">Frustrations</p>';
-                            echo '        <ul>';
-                                                while ( $frustrations_array = mysqli_fetch_array($frustrations) ) {
-                                                    echo '<li>' . $frustrations_array['frustration'] . '</li>';
-                                                }
-                            echo '        </ul>';
-                            echo '    </div>';
-                            echo '</div>';
-                        }
+                            if ($persona) {
+                                echo '<div class="design-foundations_element">';
+                                echo '    <h4>Persona</h4>';
+                                echo '    <div class="persona">';
+                                echo '    <p class="body-bold">' . $persona_array['name'] . '</p>';
+                                echo '    <div class="persona_img-traits-description">';
+                                echo '    <div class="persona_img-traits">';
+                                echo '        <img src="database_images/persona/' . $persona_array['image'] . '" alt="" class="persona_img">';
+                                echo '        <ul class="persona_traits">';
+                                echo '            <li>Age: ' . $persona_array['age'] . '</li>';
+                                echo '            <li>Gender: ' . $persona_array['gender'] . '</li>';
+                                echo '            <li>Residence: ' . $persona_array['residence'] . '</li>';
+                                echo '            <li>Occupation: ' . $persona_array['occupation'] . '</li>';
+                                echo '            <li>Hobbies: ' . $persona_array['hobbies'] . '</li>';
+                                echo '            <li>Favorite brand: ' . $persona_array['favorite_brand'] . '</li>';
+                                echo '        </ul>';
+                                echo '    </div>'; // Closing for persona_img-traits
+                                echo '    <div class="persona_description">';
+                                echo '        <p>' . $persona_array['description'] . '</p>';
+                                echo '    </div>'; // Closing for persona_description
+                                echo '</div>'; // Closing for persona_img-traits-description
+                                echo '<div class="persona_needs-frustrations">';
+                                echo '    <div class="persona_needs">';
+                                echo '        <p class="body-bold">Goals & needs</p>';
+                                echo '        <ul>';
+                                while ( $needs_array = mysqli_fetch_array($needs) ) {
+                                    echo '<li>' . $needs_array['need'] . '</li>';
+                                }
+                                echo '        </ul>';
+                                echo '    </div>'; // Closing for persona_needs
+                                echo '    <div class="persona_frustrations">';
+                                echo '        <p class="body-bold">Frustrations</p>';
+                                echo '        <ul>';
+                                while ( $frustrations_array = mysqli_fetch_array($frustrations) ) {
+                                    echo '<li>' . $frustrations_array['frustration'] . '</li>';
+                                }
+                                echo '        </ul>';
+                                echo '    </div>'; // Closing for persona_frustrations
+                                echo '</div>'; // Closing for persona_needs-frustrations
+                                echo '</div>'; // Closing for persona
+                                echo '</div>'; // Closing for design-foundations_element
+                            }
                         ?>
                         <div class="design-foundations_element">
                             <h4>Wireframes</h4>
                             <div class="wireframes">
                                 <?php
                                     while ( $wireframes_array = mysqli_fetch_array($wireframes) ) {
-                                        echo '<img src="database_images/'.$wireframes_array['img_title'].'" alt="" class="wireframe_img">';
+                                        echo '<img src="database_images/wireframes/'.$wireframes_array['img_title'].'" alt="" class="wireframe_img">';
                                     }
                                 ?>
                             </div>
@@ -262,93 +264,54 @@
                             <div class="design-comparison-before-after_container">
                                 <h3>Before</h3>
                                 <div class="design-comparison-before-after_examples">
-                                    <div class="design-comparison-before-after_example">
                                         <?php
                                             while ( $examples_array = mysqli_fetch_array($examples_before) ) {
-                                                echo '<h4>' .$examples_array['example_title']. '</h4>';
-                                                echo '<div class="example_images-description">';
-                                                echo '    <div class="example-images">';
-                                                echo '        <img src="database_images/' .$examples_array['image_before']. '" alt="">';
-                                                echo '    </div>';
-                                                echo '    <div class="example-description">';
-                                                echo '        <div>';
-                                                            $example_descriptions_result = mysqli_query($conn, "SELECT description_title, description FROM Example_description WHERE image_before='" . $examples_array['image_before'] . "'");
-                                                                while ( $example_descriptions_array = mysqli_fetch_array($example_descriptions_result) ) {
-                                                                    echo ' <h5>' .$example_descriptions_array['description_title']. '</h5>';
-                                                                    echo ' <p>' .$example_descriptions_array['description']. '</p>';
-                                                                }
+                                                echo '<div class="design-comparison-before-after_example">';
+                                                echo '  <h4>' .$examples_array['example_title']. '</h4>';
+                                                echo '  <div class="example_images-description">';
+                                                echo '       <div class="example-images">';
+                                                echo '           <img src="database_images/examples/' .$examples_array['image_before']. '" alt="">';
                                                 echo '        </div>';
-                                                echo '    </div>';
+                                                echo '        <div class="example-description">';
+                                                echo '          <div>';
+                                                               $example_descriptions_result = mysqli_query($conn, "SELECT description_title, description FROM Example_description WHERE image_before='" . $examples_array['image_before'] . "'");
+                                                                  while ( $example_descriptions_array = mysqli_fetch_array($example_descriptions_result) ) {
+                                                                       echo ' <h5>' .$example_descriptions_array['description_title']. '</h5>';
+                                                                      echo ' <p>' .$example_descriptions_array['description']. '</p>';
+                                                                   }
+                                                echo '         </div>';
+                                                echo '        </div>';
+                                                echo '  </div>';
                                                 echo '</div>';
                                             }
                                         ?>
-                                    </div>
-                                    <!-- <div class="design-comparison-before-after_example">
-                                        <div class="design-comparison-before-after_example">
-                                            <h4>Lecture</h4>
-                                            <div class="example_images-description">
-                                                <div class="example-images">
-                                                    <img src="images/stare sfi prelekcja.png" alt="">
-                                                </div>
-                                                <div class="example-description">
-                                                    <div>
-                                                        <h5>Useless information</h5>
-                                                        <p>The orange graphic with the name of the event draws most attention yet it is irrelevant for this lecture subpage. The user must have already seen it on the home page.</p>
-                                                    </div>
-                                                    <div>
-                                                        <h5>Bad Information Architecture</h5>
-                                                        <p>First information under the title is again name and number of the edition, which is repeatedly mentioned.
-                                                            The name of the lecturer should be integral with the title of the lecture, yet it is placed far from it.
-                                                            The date is not distinguished in any way from other, less important information. </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="design-comparison-before-after_example">
-                                        <div class="design-comparison-before-after_example">
-                                            <h4>Download section</h4>
-                                            <div class="example_images-description">
-                                                <div class="example-images">
-                                                    <img src="images/stare sfi sekcja pobieranina.png" alt="">
-                                                    <img src="images/stare sfi mapa.png" alt="">
-                                                </div>
-                                                <div class="example-description">
-                                                    <div>
-                                                        <h5>Bla bla</h5>
-                                                        <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.</p>
-                                                    </div>
-                                                    <div>
-                                                        <h5>Bla bla</h5>
-                                                        <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div> -->
                                 </div>
                             </div>
                             <div class="design-comparison-before-after_container">
                                 <h3>After</h3>
-                                <?php
-                                    while ( $examples_array = mysqli_fetch_array($examples_after) ) {
-                                        echo '<h4>' .$examples_array['example_title']. '</h4>';
-                                        echo '<div class="example_images-description">';
-                                        echo '    <div class="example-images">';
-                                        echo '        <img src="database_images/' .$examples_array['image_after']. '" alt="">';
-                                        echo '    </div>';
-                                        echo '    <div class="example-description">';
-                                        echo '        <div>';
-                                                    $example_descriptions_result = mysqli_query($conn, "SELECT description_title, description FROM Example_description WHERE image_after='" . $examples_array['image_after'] . "'");
-                                                        while ( $example_descriptions_array = mysqli_fetch_array($example_descriptions_result) ) {
-                                                            echo ' <h5>' .$example_descriptions_array['description_title']. '</h5>';
-                                                            echo ' <p>' .$example_descriptions_array['description']. '</p>';
-                                                        }
-                                        echo '        </div>';
-                                        echo '    </div>';
-                                        echo '</div>';
-                                    }
-                                ?>
+                                <div class="design-comparison-before-after_examples">
+                                    <?php
+                                        while ( $examples_array = mysqli_fetch_array($examples_after) ) {
+                                            echo '<div class="design-comparison-before-after_example">';
+                                            echo '  <h4>' .$examples_array['example_title']. '</h4>';
+                                            echo '  <div class="example_images-description">';
+                                            echo '       <div class="example-images">';
+                                            echo '          <img src="database_images/examples/' .$examples_array['image_after']. '" alt="">';
+                                            echo '        </div>';
+                                            echo '      <div class="example-description">';
+                                            echo '            <div>';
+                                                            $example_descriptions_result = mysqli_query($conn, "SELECT description_title, description FROM Example_description WHERE image_after='" . $examples_array['image_after'] . "'");
+                                                                while ( $example_descriptions_array = mysqli_fetch_array($example_descriptions_result) ) {
+                                                                    echo ' <h5>' .$example_descriptions_array['description_title']. '</h5>';
+                                                                   echo ' <p>' .$example_descriptions_array['description']. '</p>';
+                                                                }
+                                            echo '            </div>';
+                                            echo '     </div>';
+                                            echo '  </div>';
+                                            echo '</div>';
+                                        }
+                                    ?>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="images/logo-square.png" type="image/png">
+    <link rel="icon" href="static_images/logo-square.png" type="image/png">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/button.css">
     <link rel="stylesheet" href="styles/contact.css">
@@ -28,15 +28,15 @@
             <!-- navigation -->
             <div class="navigation">
                 <!-- logo -->
-                <a href="index.html"><img src="images/logo.png" alt="logo" class="logo-small" id="logoElement"></a>
+                <a href="index.php"><img src="static_images/logo.png" alt="logo" class="logo-small" id="logoElement"></a>
                 <!-- menu -->
                 <input type="checkbox" id="menu-active">
                 <label id="menu-overlay" for="menu-active"></label>
                 <nav class="menu_container" aria-label='primary'>
                     <div class="menu">
-                        <button><a type="button" class="button" href="my_work.html">my work</a></button>
+                        <button><a type="button" class="button" href="my_work.php">my work</a></button>
                         <button><a type="button" class="button" href="about_me.html">about me</a></button>
-                        <button><a type="button" class="button" href="contact.html">contact</a></button>
+                        <button><a type="button" class="button" href="contact.php">contact</a></button>
                     </div>
                     <label class="close-menu_button" for="menu-active">
                         <i class="material-symbols-outlined">close</i>

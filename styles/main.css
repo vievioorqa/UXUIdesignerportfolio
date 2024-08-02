@@ -336,13 +336,19 @@ body {
   height: 100svh;
   max-width: fit-content;
   /* padding: 1rem; */
-  padding-top: 1.2rem;
+  padding-top: 1.5rem;
   padding-right: 2rem;
   padding-left: 2rem;
   gap: 1.5rem;
 
   background-color: var(--background);
   transition: all 0.5s ease-in-out;
+}
+@media (min-width: 780px) {
+  .settings_container {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
 }
 
 .settings {

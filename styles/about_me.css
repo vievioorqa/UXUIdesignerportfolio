@@ -302,7 +302,7 @@ body {
   #trigger-point {
     visibility: hidden;
     position: absolute;
-    top: 25%;
+    top: 15%;
     /* border: 4px solid limegreen; */
     pointer-events: none; 
     width: 100%;
@@ -312,14 +312,14 @@ body {
   #trigger-point {
     /* visibility: hidden; */
     position: absolute;
-    top: 20%;
+    top: 0;
   }
 }
 @media (min-width: 1300px) {
   #trigger-point {
     /* visibility: hidden; */
     position: absolute;
-    top: 0;
+    top: -5%;
   }
 }
 

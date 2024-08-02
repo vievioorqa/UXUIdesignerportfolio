@@ -12,9 +12,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="images/logo-square.png" type="image/png">
+    <link rel="icon" href="static_images/logo-square.png" type="image/png">
     <link rel="stylesheet" href="styles/main.css">
-    <!-- <link rel="stylesheet" href="styles/mobile.css"> -->
     <link rel="stylesheet" href="styles/button.css">
     <link rel="stylesheet" href="styles/girl&boy.css">
     <link rel="stylesheet" href="styles/footer.css">
@@ -90,7 +89,7 @@
                 <div class="hero__logo-namenav">
                     <!-- logo -->
                     <div class="logolarge_container">
-                        <a href="index.html"><img src="images/logo.png" alt="logo" class="logo" id="logoElement"></a>
+                        <a href="index.php"><img src="static_images/logo.png" alt="logo" class="logo" id="logoElement"></a>
                     </div>
                     <!-- name | profession | traits | navigation -->
                     <div class="hero__namenav">
@@ -120,9 +119,9 @@
                         <label id="menu-overlay" for="menu-active"></label>
                         <nav class="menu_container" aria-label='primary'>
                             <div class="menu">
-                                <button><a type="button" class="button" href="my_work.html">my work</a></button>
+                                <button><a type="button" class="button" href="my_work.php">my work</a></button>
                                 <button><a type="button" class="button" href="about_me.html">about me</a></button>
-                                <button><a type="button" class="button" href="contact.html">contact</a></button>
+                                <button><a type="button" class="button" href="contact.php">contact</a></button>
                             </div>
                             <label class="close-menu_button" for="menu-active">
                                 <i class="material-symbols-outlined">close</i>
@@ -133,8 +132,8 @@
             </div>
             <!-- boy & girl -->
             <div class="boy-and-girl">
-                <img src="images/babka.png" class="character" alt="Grafika wektorowa inspirowana stylem Zosfii Stryjeńskiej, przedstawiająca tańczącą dziewczynę w stroju ludowym.">
-                <img src="images/chłopak.png" class="character" alt="Grafika wektorowa inspirowana stylem Zosfii Stryjeńskiej, przedstawiająca tańczącego chłopaka w stroju ludowym.">
+                <img src="static_images/babka.png" class="character" alt="Grafika wektorowa inspirowana stylem Zosfii Stryjeńskiej, przedstawiająca tańczącą dziewczynę w stroju ludowym.">
+                <img src="static_images/chłopak.png" class="character" alt="Grafika wektorowa inspirowana stylem Zosfii Stryjeńskiej, przedstawiająca tańczącego chłopaka w stroju ludowym.">
                 <div class="character-description">
                     <p class="character-description-animation">me</p>
                     <p class="character-description-animation">UX/UI</p>
