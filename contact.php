@@ -92,7 +92,7 @@
         <h1>Contact</h1>
         <div class="contact_container">
             <div class="photo-description_container">
-                <img src="images/profilowe.jpg" alt="" class="my-photo">
+                <img src="static_images/profilowe.jpg" alt="" class="my-photo">
                 <p>Patrycja Bobowska</p>
             </div>
             <div class="call-email_container">

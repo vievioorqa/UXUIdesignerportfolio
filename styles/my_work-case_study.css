@@ -305,7 +305,8 @@ body {
     flex-direction: column;
     /* justify-content: space-between; */
     flex-wrap: wrap;
-    gap: 1rem;
+    column-gap: 1rem;
+    row-gap: 3rem;
 }
 @media (min-width: 834px) {
     .example_images-description {
@@ -326,10 +327,20 @@ body {
 
 .example-images {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
+    align-items: flex-start;
+    flex-wrap: wrap;
     width: 100%;
-    flex-basis: 40%;
+    flex-basis: 60%;
     gap: 0.7rem;
+
+}
+
+.rounded-img {
+    border-radius: 10px;
+    object-fit: scale-down;
+    width: 100%;
+    height: auto;
 }
 
 

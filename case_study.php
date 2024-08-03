@@ -20,8 +20,8 @@
     $wireframes = mysqli_query($conn, "SELECT img_title FROM Wireframes WHERE id_case_study='".$chosen_case_study."';");
     $fonts = mysqli_query($conn, "SELECT font, link FROM Typography WHERE id_case_study='".$chosen_case_study."';");
     $colors = mysqli_query($conn, "SELECT color FROM Color_palette WHERE id_case_study='".$chosen_case_study."';");
-    $examples_before = mysqli_query($conn, "SELECT example_title, image_before FROM Example WHERE id_case_study='".$chosen_case_study."';");
-    $examples_after = mysqli_query($conn, "SELECT example_title, image_after FROM Example WHERE id_case_study='".$chosen_case_study."';");
+    $examples_before = mysqli_query($conn, "SELECT example_title, id_example FROM Example WHERE id_case_study='".$chosen_case_study."';");
+    $examples_after = mysqli_query($conn, "SELECT example_title, id_example FROM Example WHERE id_case_study='".$chosen_case_study."';");
     // $example_descriptions = mysqli_query($conn, 
     // "SELECT Example_description.description_title, Example_description.description, Example.example_title, Example.image_before, Example.image_after 
     // FROM Example_description INNER JOIN Example ON 
@@ -269,17 +269,20 @@
                                                 echo '<div class="design-comparison-before-after_example">';
                                                 echo '  <h4>' .$examples_array['example_title']. '</h4>';
                                                 echo '  <div class="example_images-description">';
-                                                echo '       <div class="example-images">';
-                                                echo '           <img src="database_images/examples/' .$examples_array['image_before']. '" alt="">';
+                                                echo '        <div class="example-images">';
+                                                                $example_images_result = mysqli_query($conn, "SELECT image_before FROM Example_images WHERE id_example='" . $examples_array['id_example'] . "'");
+                                                                while ( $example_images_array = mysqli_fetch_array($example_images_result) ) {
+                                                echo '               <img class="rounded-img" src="database_images/examples/' .$example_images_array['image_before']. '" alt="">';
+                                                                  }
                                                 echo '        </div>';
                                                 echo '        <div class="example-description">';
-                                                echo '          <div>';
-                                                               $example_descriptions_result = mysqli_query($conn, "SELECT description_title, description FROM Example_description WHERE image_before='" . $examples_array['image_before'] . "'");
+                                                                $example_descriptions_result = mysqli_query($conn, "SELECT description_title, description FROM Example_description WHERE before_after=0 AND id_example='" . $examples_array['id_example'] . "'");
                                                                   while ( $example_descriptions_array = mysqli_fetch_array($example_descriptions_result) ) {
-                                                                       echo ' <h5>' .$example_descriptions_array['description_title']. '</h5>';
-                                                                      echo ' <p>' .$example_descriptions_array['description']. '</p>';
+                                                                    echo '<div>';
+                                                                        echo '<h5>' .$example_descriptions_array['description_title']. '</h5>';
+                                                                        echo '<p>' .$example_descriptions_array['description']. '</p>';
+                                                                    echo '</div>';
                                                                    }
-                                                echo '         </div>';
                                                 echo '        </div>';
                                                 echo '  </div>';
                                                 echo '</div>';
@@ -295,17 +298,20 @@
                                             echo '<div class="design-comparison-before-after_example">';
                                             echo '  <h4>' .$examples_array['example_title']. '</h4>';
                                             echo '  <div class="example_images-description">';
-                                            echo '       <div class="example-images">';
-                                            echo '          <img src="database_images/examples/' .$examples_array['image_after']. '" alt="">';
-                                            echo '        </div>';
+                                            echo '      <div class="example-images">';
+                                                            $example_images_result = mysqli_query($conn, "SELECT image_after FROM Example_images WHERE id_example='" . $examples_array['id_example'] . "'");
+                                                            while ( $example_images_array = mysqli_fetch_array($example_images_result) ) {
+                                            echo '               <img class="rounded-img" src="database_images/examples/' .$example_images_array['image_after']. '" alt="">';
+                                                            }
+                                            echo '      </div>';
                                             echo '      <div class="example-description">';
-                                            echo '            <div>';
-                                                            $example_descriptions_result = mysqli_query($conn, "SELECT description_title, description FROM Example_description WHERE image_after='" . $examples_array['image_after'] . "'");
+                                                            $example_descriptions_result = mysqli_query($conn, "SELECT description_title, description FROM Example_description WHERE before_after=1 AND id_example='" . $examples_array['id_example'] . "'");
                                                                 while ( $example_descriptions_array = mysqli_fetch_array($example_descriptions_result) ) {
-                                                                    echo ' <h5>' .$example_descriptions_array['description_title']. '</h5>';
-                                                                   echo ' <p>' .$example_descriptions_array['description']. '</p>';
+                                                                    echo '<div>';
+                                                                        echo '<h5>' .$example_descriptions_array['description_title']. '</h5>';
+                                                                        echo '<p>' .$example_descriptions_array['description']. '</p>';
+                                                                    echo '</div>';
                                                                 }
-                                            echo '            </div>';
                                             echo '     </div>';
                                             echo '  </div>';
                                             echo '</div>';
